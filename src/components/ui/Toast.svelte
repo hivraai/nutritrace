@@ -49,7 +49,7 @@
     backdrop-filter: var(--backdrop-blur);
     -webkit-backdrop-filter: var(--backdrop-blur);
   }
-  .toast--success { border-color: rgba(79,255,176,0.25); }
+  .toast--success { border-color: rgba(197,171,136,0.25); }
   .toast--error   { border-color: rgba(255,92,92,0.25); }
   .toast-icon { font-size: 18px; flex-shrink: 0; }
   .toast--success .toast-icon { color: var(--success); }

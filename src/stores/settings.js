@@ -394,7 +394,7 @@ export async function loadServerSettings() {
     try {
       if (typeof window !== 'undefined') {
         const accent = DB.getSetting('accentColor', 'mint');
-        const appearanceVal = DB.getSetting('appearance', 'system');
+        const appearanceVal = DB.getSetting('appearance', 'dark');
         applyAccentColor(accent);
         applyAppearance(appearanceVal);
       }
@@ -511,7 +511,7 @@ function createSettingStore(key, defaultValue) {
   };
 }
 
-export const appearance       = createSettingStore('appearance',       'system');
+export const appearance       = createSettingStore('appearance',       'dark');
 export const language          = createSettingStore('language',          'en');
 export const energyUnit        = createSettingStore('energyUnit',       'kcal');
 export const mealNames         = createSettingStore('mealNames',        ['Breakfast','Lunch','Dinner','Snacks']);
@@ -694,7 +694,7 @@ export function applyAccentColor(value) {
     document.documentElement.style.setProperty('--accent',      value);
     document.documentElement.style.setProperty('--accent-2',    value);
     document.documentElement.style.setProperty('--accent-dim',  `rgba(${r},${g},${b},0.15)`);
-    document.documentElement.style.setProperty('--accent-text', lum > 0.55 ? '#0A0B0F' : '#FFFFFF');
+    document.documentElement.style.setProperty('--accent-text', lum > 0.55 ? '#000000' : '#FFFFFF');
   } else {
     document.documentElement.setAttribute('data-accent', value);
   }
@@ -715,7 +715,7 @@ function _accentToHex(value) {
   // Names match ACCENT_COLORS in Settings.svelte's picker; both files
   // must stay in sync when accents are added.
   const NAMED = {
-    mint:   '#4FFFB0', blue:  '#4FC3F7', red:    '#FF7070',
+    mint:   '#C5AB88', blue:  '#4FC3F7', red:    '#FF7070',
     purple: '#CE93D8', orange:'#FFB547', teal:   '#4DD0E1',
     pink:   '#F48FB1', yellow:'#FFF176', indigo: '#9FA8DA',
     lime:   '#C5E1A5', rose:  '#FF80AB', cyan:   '#80DEEA',
@@ -747,7 +747,7 @@ export function applyAppearance(value) {
   // tint until the user touched the accent picker again.
   const accentHex = _accentToHex(_lastAppliedAccent);
   const meta = document.getElementById('theme-color-meta');
-  if (meta) meta.content = accentHex || (dark ? '#0A0B0F' : '#F5F7FA');
+  if (meta) meta.content = accentHex || (dark ? '#000000' : '#F7F5F0');
   appearance.set(value);
 }
 

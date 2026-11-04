@@ -28,10 +28,10 @@
     // iPhone or iPad (iPadOS Safari reports itself as a Mac, so check for touch): see html.ios in base.css (#212).
     if (/iPhone|iPad|iPod/.test(navigator.userAgent) || (/Macintosh/.test(navigator.userAgent) && navigator.maxTouchPoints > 1)) document.documentElement.classList.add('ios');
   </script>
-  <meta name="theme-color" content="#0A0B0F" id="theme-color-meta" />
+  <meta name="theme-color" content="#000000" id="theme-color-meta" />
   <!-- Fonts served by this instance, never from a CDN. See public/fonts/fonts.css. -->
   <link rel="stylesheet" href="/fonts/fonts.css" />
-  <title>NutriTrace</title>
+  <title>MOUV Nutrition</title>
   <!-- VitePWA injects its own <link rel="manifest"> with a relative href that
        respects the Vite base config — keeping this hand-written one as a no-op
        fallback would resolve to the wrong absolute path under BASE_URL. -->
@@ -56,12 +56,12 @@
       }
 
       var _raw = localStorage.getItem('wl_appearance');
-      var appearance = _raw ? JSON.parse(_raw) : 'system';
+      var appearance = _raw ? JSON.parse(_raw) : 'dark';
       var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       var dark = appearance === 'dark' || (appearance === 'system' && prefersDark);
       document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
       var meta = document.getElementById('theme-color-meta');
-      if (meta) meta.content = dark ? '#0A0B0F' : '#F5F7FA';
+      if (meta) meta.content = dark ? '#000000' : '#F7F5F0';
     })();
   </script>
 

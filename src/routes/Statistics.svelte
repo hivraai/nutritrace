@@ -468,7 +468,7 @@
     const isDark      = document.documentElement.getAttribute('data-theme') !== 'light';
     const gridColor   = isDark ? 'rgba(255,255,255,0.07)' : 'rgba(0,0,0,0.07)';
     const textColor   = isDark ? 'rgba(240,242,248,0.55)' : 'rgba(13,15,20,0.55)';
-    const accentColor = isDark ? '#4FFFB0' : '#00C47A';
+    const accentColor = isDark ? '#C5AB88' : '#716A57';
 
     const isBar = $statsChartType === 'bar';
     // statsShowEmptyDays controls whether dates without a logged value stay
@@ -490,8 +490,8 @@
       data: values,
       borderColor: accentColor,
       backgroundColor: isBar
-        ? (isDark ? 'rgba(79,255,176,0.7)' : 'rgba(0,196,122,0.7)')
-        : (isDark ? 'rgba(79,255,176,0.08)' : 'rgba(0,196,122,0.08)'),
+        ? (isDark ? 'rgba(197,171,136,0.7)' : 'rgba(113,106,87,0.7)')
+        : (isDark ? 'rgba(197,171,136,0.08)' : 'rgba(113,106,87,0.08)'),
       borderWidth: isBar ? 0 : 2.5,
       pointBackgroundColor: accentColor,
       pointRadius: displayData.length > 60 ? 0 : (isBar ? 0 : 3),

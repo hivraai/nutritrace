@@ -300,7 +300,7 @@
     justify-content: center;
     min-height: 100dvh;
     padding: 24px;
-    background: var(--bg, #0A0B0F);
+    background: var(--bg, #000000);
   }
   .setup-inner {
     width: 100%;

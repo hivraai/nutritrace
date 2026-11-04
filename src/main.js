@@ -34,7 +34,7 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e =
   if (appearance === 'system') {
     document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
     const meta = document.getElementById('theme-color-meta');
-    if (meta) meta.content = e.matches ? '#0A0B0F' : '#F5F7FA';
+    if (meta) meta.content = e.matches ? '#000000' : '#F7F5F0';
   }
 });
 
@@ -61,8 +61,8 @@ DB.init()
           Could not open the local database. Try closing other tabs or clearing site data.
         </p>
         <button onclick="location.reload()"
-          style="padding:12px 24px;border-radius:12px;background:#4FFFB0;
-                 color:#0A0B0F;font-weight:600;border:none;cursor:pointer;font-size:15px;">
+          style="padding:12px 24px;border-radius:12px;background:#C5AB88;
+                 color:#000000;font-weight:600;border:none;cursor:pointer;font-size:15px;">
           Retry
         </button>
       </div>`;

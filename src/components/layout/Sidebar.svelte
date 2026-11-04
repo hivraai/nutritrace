@@ -229,7 +229,7 @@
     height: 44px;
     border-radius: 10px;
     flex-shrink: 0;
-    filter: drop-shadow(0 2px 8px rgba(79,255,176,0.3));
+    filter: drop-shadow(0 2px 8px rgba(197,171,136,0.3));
   }
   .brand-text { display: flex; flex-direction: column; gap: 2px; }
   .brand-name {

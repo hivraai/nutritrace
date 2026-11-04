@@ -13,7 +13,7 @@
   function set(key, value) { DB.setSetting(key, value); scheduleSave(key, value); }
 
   const ACCENT_COLORS = [
-    { value: 'mint',   label: 'Mint',   dark: '#4FFFB0', light: '#00C47A' },
+    { value: 'mint',   label: 'Bronze',  dark: '#C5AB88', light: '#716A57' },
     { value: 'blue',   label: 'Blue',   dark: '#4FC3F7', light: '#0277BD' },
     { value: 'red',    label: 'Red',    dark: '#FF7070', light: '#D93025' },
     { value: 'purple', label: 'Purple', dark: '#CE93D8', light: '#8E24AA' },
@@ -48,7 +48,7 @@
   $: isDark = $appearance === 'dark' || ($appearance === 'system' && (typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches));
 
   // ── Custom accent color ───────────────────────────────────────────────────
-  let customColorHex = /^#[0-9a-fA-F]{6}$/.test($accentColor) ? $accentColor : '#4FFFB0';
+  let customColorHex = /^#[0-9a-fA-F]{6}$/.test($accentColor) ? $accentColor : '#C5AB88';
   let customHexInput = customColorHex;
   let showColorSheet = false;
   let cpHue = 160, cpSat = 100, cpLgt = 50;
@@ -88,7 +88,7 @@
     cpB = parseInt(hex.slice(5,7),16);
   }
   function openColorSheet() {
-    const cur = /^#[0-9a-fA-F]{6}$/.test($accentColor) ? $accentColor : '#4FFFB0';
+    const cur = /^#[0-9a-fA-F]{6}$/.test($accentColor) ? $accentColor : '#C5AB88';
     customColorHex = cur;
     customHexInput = cur;
     [cpHue, cpSat, cpLgt] = _hexToHsl(cur);

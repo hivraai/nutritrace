@@ -501,7 +501,7 @@
 
   // Meal visual identity (icon + accent color per meal slot)
   // Icons are now computed per meal name via mealIcon(); colors cycle for any number of meals
-  const MEAL_COLORS = ['#FFB347','#4FFFB0','#4FC3F7','#CE93D8','#FF7070','#80DEEA','#C5E1A5','#FFD54F','#FF80AB','#B39DDB'];
+  const MEAL_COLORS = ['#FFB347','#C5AB88','#4FC3F7','#CE93D8','#FF7070','#80DEEA','#C5E1A5','#FFD54F','#FF80AB','#B39DDB'];
   const mealColor = i => MEAL_COLORS[i % MEAL_COLORS.length];
 
   // Tweened counters — animate numbers when food is added/removed
@@ -2406,7 +2406,7 @@
       {@const manualCounted   = !wearablePresent || policy !== 'wearable_wins'}
       {@const totalActKcal = acts.reduce((s, a) => s + (a.kcal || 0), 0)}
       <section class="meal-group card activity-group" id="activity-group" in:fly={{ y: 18, duration: _isInitialMount && !$disableAnimations ? 280 : 0, delay: _isInitialMount && !$disableAnimations ? 60 + meals.length * 55 : 0 }}>
-        <div class="meal-header" style="--meal-color:#4FFFB0">
+        <div class="meal-header" style="--meal-color:#C5AB88">
           <span class="meal-type-icon material-symbols-rounded">directions_run</span>
           <div class="activity-name-stack">
             <span class="meal-name">{$_('diary.activity.section')}</span>
@@ -2421,7 +2421,7 @@
 
         {#if acts.length === 0}
           <button type="button" class="meal-empty" on:click={() => { editingActivity = null; showActivitySheet = true; }} aria-label={$_('diary.activity.add')}>
-            <span class="material-symbols-rounded meal-empty-icon" style="color:#4FFFB0">add_circle</span>
+            <span class="material-symbols-rounded meal-empty-icon" style="color:#C5AB88">add_circle</span>
             <span class="meal-empty-text">{$_('diary.activity.tap_to_add')}</span>
           </button>
         {:else}
@@ -2434,7 +2434,7 @@
                   <div class="item-info">
                     <span class="item-name truncate">{a.name}</span>
                     <span class="item-meta text-3 text-sm">
-                      {#if a.duration_min}{a.duration_min} min{/if}{#if a.duration_min && a.distance} | {/if}{#if a.distance}{@const _dStr = String(a.distance).trim()}{_dStr}{#if /^\d+(\.\d+)?$/.test(_dStr)} {$distUnit || 'mi'}{/if}{/if}{#if (a.duration_min || a.distance)} | {/if}<span style="color:#4FFFB0">−{_aEnergy.value.toLocaleString()} {_aEnergy.unit}</span>{#if a.source === 'ai_estimated'} | <span class="text-3" title="Estimated by Trace">{$_('diary.activity.estimated_short')}</span>{/if}
+                      {#if a.duration_min}{a.duration_min} min{/if}{#if a.duration_min && a.distance} | {/if}{#if a.distance}{@const _dStr = String(a.distance).trim()}{_dStr}{#if /^\d+(\.\d+)?$/.test(_dStr)} {$distUnit || 'mi'}{/if}{/if}{#if (a.duration_min || a.distance)} | {/if}<span style="color:#C5AB88">−{_aEnergy.value.toLocaleString()} {_aEnergy.unit}</span>{#if a.source === 'ai_estimated'} | <span class="text-3" title="Estimated by Trace">{$_('diary.activity.estimated_short')}</span>{/if}
                     </span>
                   </div>
                 </button>
@@ -2454,7 +2454,7 @@
               {/each}
             </div>
             <span class="meal-macro-text text-3 text-sm">
-              <span style="color:#4FFFB0">−{_totActEnergy.value.toLocaleString()} {_totActEnergy.unit}</span>
+              <span style="color:#C5AB88">−{_totActEnergy.value.toLocaleString()} {_totActEnergy.unit}</span>
               {#if wearablePresent && !manualCounted}
                 · <span title={$_('diary.activity.policy_chip')}>{$_('diary.activity.not_counted')}</span>
               {/if}
@@ -2641,7 +2641,7 @@
         {@const _aE = Nutrition.displayEnergy(_effectiveActive, $energyUnit)}
         {@const _adjE = Nutrition.displayEnergy(caloriesGoalAdjusted, $energyUnit)}
         <div class="dbb-activity-breakdown text-3 text-sm">
-          Goal {_gE.value.toLocaleString()} <span style="color:#4FFFB0">+ Activity {_aE.value.toLocaleString()}</span> = {_adjE.value.toLocaleString()} {_adjE.unit}
+          Goal {_gE.value.toLocaleString()} <span style="color:#C5AB88">+ Activity {_aE.value.toLocaleString()}</span> = {_adjE.value.toLocaleString()} {_adjE.unit}
         </div>
       {/if}
       <!-- Water row -->
@@ -3364,7 +3364,7 @@
   .activity-footer { cursor: default; }
   .activity-footer:hover, .activity-footer:active { background: transparent; }
   .amb-seg {
-    background: linear-gradient(90deg, #4FFFB0, #00B894);
+    background: linear-gradient(90deg, #C5AB88, #716A57);
     border-right: 1px solid var(--surface-2, rgba(0,0,0,0.18));
   }
   .amb-seg:last-child { border-right: 0; }
@@ -4096,7 +4096,7 @@
   .wc-bottle-wrap.wc-overflowing { animation: wc-overflow-glow 1.8s ease-in-out infinite; }
   @keyframes wc-overflow-glow {
     0%,100% { filter: drop-shadow(0 8px 24px rgba(0,0,0,0.3)); }
-    50%      { filter: drop-shadow(0 0 22px rgba(79,255,176,0.55)) drop-shadow(0 8px 24px rgba(0,0,0,0.2)); }
+    50%      { filter: drop-shadow(0 0 22px rgba(197,171,136,0.55)) drop-shadow(0 8px 24px rgba(0,0,0,0.2)); }
   }
   .wc-bottle-svg { width: 100%; height: auto; overflow: visible; }
   .wc-bottle-svg.wc-overflowing .wc-water-wave { animation-duration: 0.65s; }

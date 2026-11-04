@@ -103,11 +103,11 @@ export default defineConfig({
         ]
       },
       manifest: {
-        name: 'NutriTrace',
-        short_name: 'NutriTrace',
+        name: 'MOUV Nutrition',
+        short_name: 'MOUV',
         description: 'Trace Every Bite — Personal Nutrition Tracker',
-        theme_color: '#0A0B0F',
-        background_color: '#0A0B0F',
+        theme_color: '#000000',
+        background_color: '#000000',
         display: 'standalone',
         orientation: 'portrait-primary',
         // Relative URLs — browsers resolve them against the manifest's own
