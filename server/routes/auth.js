@@ -11,6 +11,8 @@ import { sendPasswordReset, sendInvite, isEmailConfigured } from '../email.js';
 import { estimate as estimatePasswordStrength, STRONG_MIN_SCORE } from '../lib/password-strength.js';
 import { claimAnonymousData, purgeUnreferencedUserData, purgeUserRows } from '../lib/claim-anonymous-data.js';
 import { ownerOrOptIn } from '../lib/outbound-policy.js';
+import { verifyWaLink, waLinkUsername } from '../lib/wa-link.js';
+import { makeRateLimiter } from '../middleware/rate-limit.js';
 
 const router = Router();
 
@@ -190,6 +192,33 @@ router.post('/login', rateLimitLogin, wrap((req, res) => {
   warnIfPlainHttp(req);
   res.cookie('nt_token', token, cookieOpts);
   res.json({ user: safeUser(user), token });
+}));
+
+// ── The MOUV WhatsApp button ───────────────────────────────
+// HIVRA signs the link and only a member of that chat gets it, so tapping it
+// is the sign-in. The first tap creates the member's account: no name, no
+// phone, a password nobody knows. Regular role, always.
+const waLinkLimit = makeRateLimiter({ max: 30, windowMs: 60_000, label: 'wa-link' });
+router.get('/wa-link', waLinkLimit, wrap((req, res) => {
+  const link = verifyWaLink(req.query.t, process.env.WA_LINK_SECRET, Date.now());
+  res.setHeader('Referrer-Policy', 'no-referrer');
+  if (!link) {
+    return res.status(410).type('html').send(
+      '<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">' +
+      '<title>MOUV Nutrition</title><body style="background:#000;color:#fff;font-family:sans-serif;padding:32px;text-align:center">' +
+      '<p>Este enlace ya venció. Pídele uno nuevo al chat de MOUV.</p>' +
+      '<p style="color:#BDB8AB">This link has expired. Ask the MOUV chat for a new one.</p></body>'
+    );
+  }
+  const username = waLinkUsername(link);
+  let user = db.prepare('SELECT * FROM users WHERE username = ?').get(username);
+  if (!user) {
+    const hash = bcrypt.hashSync(crypto.randomBytes(32).toString('hex'), 12);
+    const created = db.prepare(`INSERT INTO users (username, password_hash, role) VALUES (?, ?, 'user')`).run(username, hash);
+    user = db.prepare('SELECT * FROM users WHERE id = ?').get(created.lastInsertRowid);
+  }
+  res.cookie('nt_token', signToken(user), COOKIE_OPTS);
+  res.redirect(302, '/');
 }));
 
 // ── Logout ─────────────────────────────────────────────────────────────────
