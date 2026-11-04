@@ -15,7 +15,7 @@
   import { currentDate, loadEntry } from './stores/diary.js';
   import { reloadSettingStores } from './stores/settings.js';
   import { localizeNutriments } from './lib/nutrition.js';
-  import { mealNames, dateFormat, navStyle, applyAccentColor, accentColor, applyAppearance, appearance, disableAnimations, sidebarPersistent, language, pageBanners, bannerStyle, bannerAnimation, forceMobileLayout } from './stores/settings.js';
+  import { diaryShowActivity, mealNames, dateFormat, navStyle, applyAccentColor, accentColor, applyAppearance, appearance, disableAnimations, sidebarPersistent, language, pageBanners, bannerStyle, bannerAnimation, forceMobileLayout } from './stores/settings.js';
   import { locale, _ } from 'svelte-i18n';
   import { currentUser, userMgmtActive, setupRequired, loadAuthState, handleOidcCallback } from './stores/auth.js';
   import { needsNativeSetup, isNative, getNativeMode, getServerUrl, apiUrl, getAuthToken } from './lib/platform.js';
@@ -195,6 +195,15 @@
   // Fires on mount + on every change, so picking a new value in the Settings
   // dropdown immediately re-renders all $_ calls in the running app.
   $: if ($language) { localizeNutriments($language); locale.set($language); }
+
+  // Older builds kept Activity off on this device; turn it on once. After
+  // that the member's own choice in Settings stands.
+  try {
+    if (!localStorage.getItem('nt:mouv-activity-on')) {
+      diaryShowActivity.set(true);
+      localStorage.setItem('nt:mouv-activity-on', '1');
+    }
+  } catch {}
 
   // A member's first tap on the MOUV WhatsApp button carries their language.
   {
