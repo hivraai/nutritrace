@@ -17,6 +17,7 @@
   import WaterWidget       from '../components/diary/WaterWidget.svelte';
   import BodyStatsWidget   from '../components/diary/BodyStatsWidget.svelte';
   import ActivityImpactWidget from '../components/diary/ActivityImpactWidget.svelte';
+  import MouvCard from '../components/diary/MouvCard.svelte';
   import WeekStrip           from '../components/diary/WeekStrip.svelte';
   import AddActivitySheet from '../components/diary/AddActivitySheet.svelte';
   import QuickCaloriesSheet from '../components/diary/QuickCaloriesSheet.svelte';
@@ -1952,6 +1953,8 @@
       <h1>{$_('routes.diary.title')}</h1>
     {/if}
   </header>
+
+  <MouvCard />
 
   <!-- Date navigation and the desktop week strip pin as one block right
        under the header, so nothing can show between them. -->

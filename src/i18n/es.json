@@ -1,4 +1,30 @@
 {
+  "mouv": {
+    "whoop": {
+      "recovery": "Recuperación",
+      "sleep": "Sueño",
+      "strain": "Esfuerzo",
+      "band_low": "Bajo",
+      "band_medium": "Medio",
+      "band_high": "Alto",
+      "connect_text": "Conecta tu Whoop para ver aquí tu recuperación, sueño y esfuerzo de hoy. Se lee en vivo y no se guarda.",
+      "connect": "Conectar Whoop"
+    },
+    "glp1": {
+      "title": "GLP-1",
+      "question": "¿Usas un medicamento GLP-1 como Ozempic o Mounjaro? Nos ayuda a enfocar tu comida y tu entrenamiento. Nunca te pedimos la dosis.",
+      "status_no": "No",
+      "status_starting": "Sí, empecé hace poco",
+      "status_steady": "Sí, desde hace un tiempo",
+      "status_stopped": "Lo dejé",
+      "status_private": "Prefiero no decir",
+      "consent": "Acepto que MOUV guarde esta respuesta y la use, con su proveedor de IA, para adaptar mis consejos. Puedo borrarla cuando quiera. Esto no es consejo médico.",
+      "save": "Guardar",
+      "note": "MOUV no da consejos médicos. Las preguntas sobre tu tratamiento van con tu médico.",
+      "forget": "Borrar esta respuesta",
+      "failed": "No se pudo guardar. Intenta de nuevo en un momento."
+    }
+  },
   "nav": {
     "diary": "Diario",
     "foods": "Alimentos",

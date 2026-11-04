@@ -24,6 +24,9 @@ test('another secret, a changed body or no secret does not', () => {
   assert.equal(verifyWaLink(`${body}.${mac}`, SECRET, NOW), null);
   assert.equal(verifyWaLink(sign(good), '', NOW), null);
 });
+test('a server-to-server token does not', () => {
+  assert.equal(verifyWaLink(sign({ ...good, aud: 'member' }), SECRET, NOW), null);
+});
 test('an expired link does not', () => {
   assert.equal(verifyWaLink(sign({ ...good, exp: NOW }), SECRET, NOW), null);
 });

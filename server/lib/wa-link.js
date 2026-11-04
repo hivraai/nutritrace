@@ -26,6 +26,8 @@ export function verifyWaLink(token, secret, nowMs) {
   }
   if (!payload || !ID.test(String(payload.sub)) || !ID.test(String(payload.tid))) return null;
   if (typeof payload.exp !== 'number' || payload.exp <= nowMs) return null;
+  // A server-to-server token (mouv.js) is not a way in.
+  if (payload.aud) return null;
   return { sub: String(payload.sub), tid: String(payload.tid), lang: payload.lang === 'en' ? 'en' : 'es', exp: payload.exp };
 }
 

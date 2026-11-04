@@ -1193,4 +1193,13 @@ try {
   console.warn('[db] foods nutriment key canonicalization failed:', e?.message || e);
 }
 
+// MOUV: which HIVRA member an account is, and their GLP-1 answer. Never a dose.
+db.exec(`CREATE TABLE IF NOT EXISTS mouv_members (
+  user_id           INTEGER PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
+  contact_id        TEXT NOT NULL,
+  tenant_id         TEXT NOT NULL,
+  glp1_status       TEXT DEFAULT NULL,
+  glp1_consented_at TEXT DEFAULT NULL
+)`);
+
 export default db;

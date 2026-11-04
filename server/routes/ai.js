@@ -6,6 +6,7 @@ import { makeRateLimiter } from '../middleware/rate-limit.js';
 import { getOpenAIChatParams } from '../lib/openai-chat-params.js';
 import { toolMessagesForOpenAI, toolNameFor, rememberToolCalls } from '../lib/tool-messages.js';
 import db from '../db.js';
+import { withMouvContext } from '../lib/mouv-context.js';
 
 const router = Router();
 const aiChatLimit = makeRateLimiter({ max: 30, windowMs: 60_000, label: 'ai' });
@@ -170,8 +171,10 @@ function _normaliseImagePartsToOpenAI(msg) {
  * provider the admin chose.
  */
 router.post('/chat', requireAuth, aiChatLimit, wrap(async (req, res) => {
-  const { messages: rawMessages, systemPrompt, tools } = req.body;
+  const { messages: rawMessages, tools } = req.body;
   if (!Array.isArray(rawMessages)) return res.status(400).json({ error: 'messages array required' });
+  const mouvMember = req.user?.id ? db.prepare('SELECT glp1_status FROM mouv_members WHERE user_id = ?').get(req.user.id) : null;
+  const systemPrompt = withMouvContext(req.body.systemPrompt, mouvMember?.glp1_status);
   // Normalise every user-message image part to OpenAI wire shape
   // (`{type:'image_url', image_url:{url:'data:...'}}`) BEFORE dispatching
   // to any provider. Downstream _callClaude/_callGemini already speak
