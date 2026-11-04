@@ -26,7 +26,7 @@ export function verifyWaLink(token, secret, nowMs) {
   }
   if (!payload || !ID.test(String(payload.sub)) || !ID.test(String(payload.tid))) return null;
   if (typeof payload.exp !== 'number' || payload.exp <= nowMs) return null;
-  return { sub: String(payload.sub), tid: String(payload.tid), lang: payload.lang === 'en' ? 'en' : 'es' };
+  return { sub: String(payload.sub), tid: String(payload.tid), lang: payload.lang === 'en' ? 'en' : 'es', exp: payload.exp };
 }
 
 /** One account per member per business, never a name or a phone number. */

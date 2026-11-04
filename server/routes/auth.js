@@ -217,7 +217,10 @@ router.get('/wa-link', waLinkLimit, wrap((req, res) => {
     const created = db.prepare(`INSERT INTO users (username, password_hash, role) VALUES (?, ?, 'user')`).run(username, hash);
     user = db.prepare('SELECT * FROM users WHERE id = ?').get(created.lastInsertRowid);
   }
-  res.cookie('nt_token', signToken(user), COOKIE_OPTS);
+  // HIVRA checked the member's pack when it signed this link, so the session
+  // ends with the link: when a pack ends, the page ends within a day.
+  const remainingMs = link.exp - Date.now();
+  res.cookie('nt_token', signToken(user, Math.ceil(remainingMs / 1000)), { ...COOKIE_OPTS, maxAge: remainingMs });
   res.redirect(302, '/');
 }));
 

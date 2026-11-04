@@ -27,10 +27,10 @@ export function userMgmtActive() {
 const DEFAULT_SESSION_HOURS = 8760;
 
 /** Sign a JWT for a user row */
-export function signToken(user) {
+export function signToken(user, expiresInSeconds = null) {
   const cfg = db.prepare("SELECT value FROM app_config WHERE key = 'session_hours'").get();
   const hours = cfg?.value != null && cfg.value !== '' ? parseInt(cfg.value) : DEFAULT_SESSION_HOURS;
-  const opts = hours > 0 ? { expiresIn: `${hours}h` } : {};
+  const opts = expiresInSeconds ? { expiresIn: expiresInSeconds } : hours > 0 ? { expiresIn: `${hours}h` } : {};
   return jwt.sign(
     { id: user.id, username: user.username, role: user.role, csrf: crypto.randomBytes(16).toString('hex') },
     JWT_SECRET,

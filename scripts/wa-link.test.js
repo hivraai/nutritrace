@@ -15,7 +15,7 @@ function sign(payload, secret = SECRET) {
 const good = { sub: SUB, tid: TID, lang: 'es', exp: NOW + 1000 };
 
 test('a signed, unexpired link opens', () => {
-  assert.deepEqual(verifyWaLink(sign(good), SECRET, NOW), { sub: SUB, tid: TID, lang: 'es' });
+  assert.deepEqual(verifyWaLink(sign(good), SECRET, NOW), { sub: SUB, tid: TID, lang: 'es', exp: NOW + 1000 });
 });
 test('another secret, a changed body or no secret does not', () => {
   assert.equal(verifyWaLink(sign(good, 'other'), SECRET, NOW), null);
