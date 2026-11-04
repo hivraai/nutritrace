@@ -618,7 +618,7 @@ export const diaryRailShowActivity     = createSettingStore('diaryRailShowActivi
 export const diaryRailShowNotes        = createSettingStore('diaryRailShowNotes',         true);
 
 // Activity logging (issue #3 — opt-in calorie-burn entry that offsets daily goal)
-export const diaryShowActivity      = createSettingStore('diaryShowActivity',        false);
+export const diaryShowActivity      = createSettingStore('diaryShowActivity',        true);
 export const manualActivityPolicy   = createSettingStore('manualActivityPolicy',     'wearable_wins'); // 'wearable_wins' | 'manual_wins' | 'additive'
 export const activityAutoEstimate   = createSettingStore('activityAutoEstimate',     false);
 export const calorieAdjustFromActivity = createSettingStore('calorieAdjustFromActivity', false);
