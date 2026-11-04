@@ -28,7 +28,7 @@
     // iPhone or iPad (iPadOS Safari reports itself as a Mac, so check for touch): see html.ios in base.css (#212).
     if (/iPhone|iPad|iPod/.test(navigator.userAgent) || (/Macintosh/.test(navigator.userAgent) && navigator.maxTouchPoints > 1)) document.documentElement.classList.add('ios');
   </script>
-  <meta name="theme-color" content="#000000" id="theme-color-meta" />
+  <meta name="theme-color" content="#FFFFFF" id="theme-color-meta" />
   <!-- Fonts served by this instance, never from a CDN. See public/fonts/fonts.css. -->
   <link rel="stylesheet" href="/fonts/fonts.css" />
   <title>MOUV Nutrition</title>
@@ -56,7 +56,7 @@
       }
 
       var _raw = localStorage.getItem('wl_appearance');
-      var appearance = _raw ? JSON.parse(_raw) : 'dark';
+      var appearance = _raw ? JSON.parse(_raw) : 'light';
       var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       var dark = appearance === 'dark' || (appearance === 'system' && prefersDark);
       document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');

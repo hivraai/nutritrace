@@ -18,6 +18,7 @@
   import BodyStatsWidget   from '../components/diary/BodyStatsWidget.svelte';
   import ActivityImpactWidget from '../components/diary/ActivityImpactWidget.svelte';
   import MouvCard from '../components/diary/MouvCard.svelte';
+  import { iconUrl } from '../lib/platform.js';
   import WeekStrip           from '../components/diary/WeekStrip.svelte';
   import AddActivitySheet from '../components/diary/AddActivitySheet.svelte';
   import QuickCaloriesSheet from '../components/diary/QuickCaloriesSheet.svelte';
@@ -1950,6 +1951,7 @@
     {#if selectMode}
       <h1 class="select-mode-title">{selectedItems.size} selected</h1>
     {:else}
+      <img src={iconUrl('/icons/mouv-wordmark.png')} alt="MOUV" class="mouv-masthead" />
       <h1>{$_('routes.diary.title')}</h1>
     {/if}
   </header>

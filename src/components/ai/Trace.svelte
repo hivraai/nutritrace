@@ -492,7 +492,7 @@
         }
         case 'add_activity_entry': {
           // Permission + capability gates
-          const showActivity   = DB.getSetting('diaryShowActivity', false);
+          const showActivity   = DB.getSetting('diaryShowActivity', true);
           const autoEstimate   = DB.getSetting('activityAutoEstimate', false);
           if (!showActivity) {
             return { error: 'Activity logging is disabled. The user must turn on Settings → Diary → Show activity section before you can log activity.' };

@@ -394,7 +394,7 @@ export async function loadServerSettings() {
     try {
       if (typeof window !== 'undefined') {
         const accent = DB.getSetting('accentColor', 'mint');
-        const appearanceVal = DB.getSetting('appearance', 'dark');
+        const appearanceVal = DB.getSetting('appearance', 'light');
         applyAccentColor(accent);
         applyAppearance(appearanceVal);
       }
@@ -511,7 +511,7 @@ function createSettingStore(key, defaultValue) {
   };
 }
 
-export const appearance       = createSettingStore('appearance',       'dark');
+export const appearance       = createSettingStore('appearance',       'light');
 export const language          = createSettingStore('language',          'es');
 export const energyUnit        = createSettingStore('energyUnit',       'kcal');
 export const mealNames         = createSettingStore('mealNames',        ['Desayuno','Almuerzo','Cena','Meriendas']);
@@ -830,8 +830,7 @@ function _migrateBannerStyle() {
   // settings batch by Wizard.svelte's finish() / skip() paths — that's
   // a 100%-reliable "this is a new install" signal that doesn't require
   // scraping localStorage. Mirrors LiftTrace d24bed5.
-  if (DB.getSetting('pageBanners', true) === false) return 'off';
-  return 'animated';
+  return 'off';
 }
 export const bannerStyle          = createSettingStore('bannerStyle',          _migrateBannerStyle());
 // pageBanners is now a legacy derived alias. The illustrated SVG banners
