@@ -14,7 +14,7 @@
   import { DB, localDateStr } from './lib/db.js';
   import { currentDate, loadEntry } from './stores/diary.js';
   import { reloadSettingStores } from './stores/settings.js';
-  import { navStyle, applyAccentColor, accentColor, applyAppearance, appearance, disableAnimations, sidebarPersistent, language, pageBanners, bannerStyle, bannerAnimation, forceMobileLayout } from './stores/settings.js';
+  import { mealNames, dateFormat, navStyle, applyAccentColor, accentColor, applyAppearance, appearance, disableAnimations, sidebarPersistent, language, pageBanners, bannerStyle, bannerAnimation, forceMobileLayout } from './stores/settings.js';
   import { locale, _ } from 'svelte-i18n';
   import { currentUser, userMgmtActive, setupRequired, loadAuthState, handleOidcCallback } from './stores/auth.js';
   import { needsNativeSetup, isNative, getNativeMode, getServerUrl, apiUrl, getAuthToken } from './lib/platform.js';
@@ -201,6 +201,8 @@
     const fromLink = url.searchParams.get('lang');
     if (fromLink === 'es' || fromLink === 'en') {
       language.set(fromLink);
+      mealNames.set(fromLink === 'en' ? ['Breakfast', 'Lunch', 'Dinner', 'Snacks'] : ['Desayuno', 'Almuerzo', 'Cena', 'Meriendas']);
+      dateFormat.set(fromLink === 'en' ? 'US' : 'EU');
       url.searchParams.delete('lang');
       window.history.replaceState(window.history.state, '', url);
     }

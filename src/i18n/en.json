@@ -75,7 +75,10 @@
       "weekly_trend": "Weekly trend",
       "weight": "Weight",
       "weight_not_logged": "Weight not logged",
-      "weight_source": "Weight source"
+      "weight_source": "Weight source",
+      "today": "Today",
+      "yesterday": "Yesterday",
+      "todays_log": "Today's Log"
     }
   },
   "nav": {

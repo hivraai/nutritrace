@@ -3,7 +3,7 @@
   import { onMount, onDestroy, tick } from 'svelte';
   import { fold } from '../lib/fold.js';
   import { push } from 'svelte-spa-router';
-  import { _ } from 'svelte-i18n';
+  import { _, locale } from 'svelte-i18n';
   import DatePicker from '../components/ui/DatePicker.svelte';
   import DateInput  from '../components/ui/DateInput.svelte';
   import { resolveAssetUrl, isNative, getServerUrl } from '../lib/platform.js';
@@ -889,14 +889,14 @@
   $: protGoal  = _macroGoal('proteins', $currentDate);
   $: calPct    = Math.min(100, ((totals.calories||0) / caloriesGoalAdjusted) * 100);
 
-  function formatDate(d) {
+  function formatDate(d, t, lang) {
     if (!d) return '';
     const dt = new Date(d + 'T12:00:00');
     const today = localDateStr();
     const yest  = localDateStr(new Date(Date.now() - 86400000));
-    if (d === today) return 'Today';
-    if (d === yest)  return 'Yesterday';
-    return dt.toLocaleDateString(undefined, { weekday:'short', month:'short', day:'numeric' });
+    if (d === today) return t('mouv.ui.today');
+    if (d === yest)  return t('mouv.ui.yesterday');
+    return dt.toLocaleDateString(lang || undefined, { weekday:'short', month:'short', day:'numeric' });
   }
 
   function formatDateSub(d, fmt) {
@@ -912,7 +912,7 @@
       const dy = String(dt.getDate()).padStart(2,'0');
       return dy + '/' + m + '/' + dt.getFullYear();
     } else if (fmt === 'natural') {
-      return dt.toLocaleDateString(undefined, { day:'numeric', month:'short', year:'numeric' });
+      return dt.toLocaleDateString($locale || undefined, { day:'numeric', month:'short', year:'numeric' });
     }
     return d; // ISO default
   }
@@ -1967,7 +1967,7 @@
     </button>
     <button class="date-btn" on:click={openDatePicker} title={$_('diary.nav.jump_to_date')}>
       <span class="date-label">
-        {formatDate($currentDate)}
+        {formatDate($currentDate, $_, $locale)}
         {#if $diaryShowNotes && (entry?.notes || '').trim()}
           <span class="material-symbols-rounded date-note-indicator" title="Has notes">edit_note</span>
         {/if}
@@ -2027,7 +2027,7 @@
         const yd = new Date(); yd.setDate(yd.getDate() - 1);
         if ($currentDate === localDateStr(yd)) return $_('diary.day_complete.status.yesterday');
       } catch {}
-      return formatDate($currentDate);
+      return formatDate($currentDate, $_, $locale);
     })()}
     <!-- A solid band from the bottom of the sticky block to just below the
          status bar, so no content shows above, beside or under its edges. -->
@@ -2792,7 +2792,7 @@
 
     <!-- Today's log -->
     {#if _waterLogs.length > 0}
-      <p class="section-title" style="padding:12px 0 8px">Today's Log</p>
+      <p class="section-title" style="padding:12px 0 8px">{$_('mouv.ui.todays_log')}</p>
       <div class="card wc-log-card">
         {#each _waterLogs as log, i}
           {#if i > 0}<div class="wc-divider"></div>{/if}

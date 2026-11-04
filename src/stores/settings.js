@@ -514,7 +514,7 @@ function createSettingStore(key, defaultValue) {
 export const appearance       = createSettingStore('appearance',       'dark');
 export const language          = createSettingStore('language',          'es');
 export const energyUnit        = createSettingStore('energyUnit',       'kcal');
-export const mealNames         = createSettingStore('mealNames',        ['Breakfast','Lunch','Dinner','Snacks']);
+export const mealNames         = createSettingStore('mealNames',        ['Desayuno','Almuerzo','Cena','Meriendas']);
 export const goals             = createSettingStore('goals',            {});
 export const goalTemplates     = createSettingStore('goalTemplates',    []);
 export const calorieGoalMode   = createSettingStore('calorieGoalMode',   'fixed');  // 'fixed' | 'dynamic' | 'adaptive'
@@ -759,7 +759,7 @@ export const disableAnimations  = createSettingStore('disableAnimations',  false
 export const goalCelebrations   = createSettingStore('goalCelebrations',   true);
 
 // Date / time display format
-export const dateFormat = createSettingStore('dateFormat', 'US');   // 'ISO' | 'US' | 'EU' | 'natural'
+export const dateFormat = createSettingStore('dateFormat', 'EU');   // 'ISO' | 'US' | 'EU' | 'natural'
 export const timeFormat = createSettingStore('timeFormat', '12h');  // '12h' | '24h'
 export const timezone   = createSettingStore('timezone',   '');     // IANA timezone (e.g. 'America/New_York'), empty = auto-detect
 

@@ -75,7 +75,10 @@
       "weekly_trend": "Tendencia semanal",
       "weight": "Peso",
       "weight_not_logged": "Peso sin registrar",
-      "weight_source": "Fuente del peso"
+      "weight_source": "Fuente del peso",
+      "today": "Hoy",
+      "yesterday": "Ayer",
+      "todays_log": "Registro de hoy"
     }
   },
   "nav": {
