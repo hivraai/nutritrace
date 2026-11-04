@@ -50,6 +50,8 @@ html.ios .qc-macro-input,
 html.ios .qce-macro-input { font-size: 20px !important; }
 
 a { color: var(--accent); text-decoration: none; }
+.mouv-wordmark { display: block; height: 56px; width: auto; margin: 0 auto var(--space-3); }
+[data-theme="light"] .mouv-wordmark { filter: invert(1); }
 button { font-family: inherit; cursor: pointer; border: none; background: none; }
 input, select, textarea { font-family: inherit; }
 

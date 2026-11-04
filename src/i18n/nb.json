@@ -417,7 +417,7 @@
     "no_signin_methods": "Ingen innloggingsmetode tilgjengelig. Spør din administrator.",
     "biometric": {
       "sign_in_button": "Logg inn med biometri",
-      "prompt": "Logg inn på NutriTrace",
+      "prompt": "Logg inn på MOUV Nutrition",
       "no_saved": "Ingen lagrede pålogging. Vennligst bruk passordet ditt én gang først.",
       "expired": "Ditt lagrede innlogging har utløpt. Bruk passordet ditt for å logge inn.",
       "failed": "Biometrisk innlogging feilet. Bruk passordet ditt istedenfor."
@@ -546,7 +546,7 @@
       "finish": "Fullfør"
     },
     "welcome": {
-      "title": "Velkommen til NutriTrace",
+      "title": "Velkommen til MOUV Nutrition",
       "desc": "Din personlige kostholdsmåler. La oss gjøre klart oppsettet ditt, det tar rundt ett minutt."
     },
     "name": {

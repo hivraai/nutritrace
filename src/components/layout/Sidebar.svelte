@@ -121,10 +121,10 @@
   >
     <!-- App branding -->
     <div class="sidebar-brand">
-      <img class="brand-icon" src={iconUrl('/icons/logo.png')} alt="NutriTrace" />
+      <img class="brand-icon" src={iconUrl('/icons/logo.png')} alt="MOUV" />
       <div class="brand-text">
-        <span class="brand-name">NutriTrace</span>
-        <span class="brand-tagline">Trace Every Bite — Personal Nutrition Tracker</span>
+        <span class="brand-name">MOUV Nutrition</span>
+        <span class="brand-tagline">mind, body &amp; soul</span>
       </div>
     </div>
 

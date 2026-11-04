@@ -383,7 +383,7 @@
       "finish": "Terminer"
     },
     "welcome": {
-      "title": "Bienvenue sur NutriTrace",
+      "title": "Bienvenue sur MOUV Nutrition",
       "desc": "Votre tracker de nutrition personnel. Configurons-le en une minute environ."
     },
     "name": {
@@ -594,7 +594,7 @@
     "verifying": "Vérification de l'invitation…",
     "invalid_link": "Ce lien d'invitation est invalide ou a expiré. Demandez-en un nouveau à votre administrateur.",
     "success": "Compte créé ! Redirection…",
-    "intro": "Vous avez été invité sur NutriTrace. Choisissez un nom d'utilisateur et un mot de passe pour commencer.",
+    "intro": "Vous avez été invité sur MOUV Nutrition. Choisissez un nom d'utilisateur et un mot de passe pour commencer.",
     "intro_with_email": "Vous avez été invité en tant que <strong>{email}</strong>. Choisissez un nom d'utilisateur et un mot de passe pour commencer.",
     "username_label": "Nom d'utilisateur *",
     "username_placeholder": "Choisissez un nom d'utilisateur",

@@ -427,7 +427,7 @@
     "no_signin_methods": "No sign-in methods available. Ask your administrator.",
     "biometric": {
       "sign_in_button": "Sign In with Biometric",
-      "prompt": "Sign in to NutriTrace",
+      "prompt": "Sign in to MOUV Nutrition",
       "no_saved": "No saved sign-in. Please use your password once first.",
       "expired": "Your saved sign-in expired. Use your password to sign in.",
       "failed": "Biometric sign-in failed. Use your password instead."
@@ -556,7 +556,7 @@
       "finish": "Finish"
     },
     "welcome": {
-      "title": "Welcome to NutriTrace",
+      "title": "Welcome to MOUV Nutrition",
       "desc": "Your personal nutrition tracker. Let's get you set up in about a minute."
     },
     "name": {
@@ -1526,8 +1526,8 @@
       "workout_history_desc": "Show recorded workouts with GPS route maps in the Movement tab. Requires a GPS-enabled device.",
       "custom_days_ph": "days",
       "custom_days_title": "Custom Number of Days (Max {max})",
-      "authorize_desc": "Authorize NutriTrace to read your {provider} data.",
-      "authorize_desc_fitbit": "Authorize NutriTrace to read your Fitbit data via Google Health.",
+      "authorize_desc": "Authorize MOUV Nutrition to read your {provider} data.",
+      "authorize_desc_fitbit": "Authorize MOUV Nutrition to read your Fitbit data via Google Health.",
       "server_only_desc": "Requires a server connection for OAuth authentication. In local mode, use Health Connect below to read {provider} data directly from your Android device.",
       "sync_range_desc": "How far back the manual Sync button fetches.",
       "sync_range_desc_fitbit": "How far back the manual Sync button fetches. Auto-sync always covers today only.",
@@ -1545,7 +1545,7 @@
       "legacy_desc": "Steps, activity, sleep stages, heart rate, HRV, SpO2. Legacy Fitbit Web API is being retired, new connections should use Google Health below.",
       "retired_desc": "The legacy Fitbit Web API is being retired. To sync Fitbit data, connect via Google Health below, which uses the same underlying data via Google's Fitness API.",
       "relink_label": "Re-link required by May 31, 2026",
-      "authorize_desc": "Authorize NutriTrace to read your Fitbit data via Google Health.",
+      "authorize_desc": "Authorize MOUV Nutrition to read your Fitbit data via Google Health.",
       "setup_desc": "Fitbit setup now uses Google Cloud Console (legacy dev.fitbit.com no longer accepts new app registrations). Create an OAuth 2.0 client of type Web server and paste the Client ID + Secret here.",
       "setup_link": "Setup guide →",
       "client_id_ph": "From Google Cloud Console → APIs & Services → Credentials",
@@ -1555,11 +1555,11 @@
     "garmin_deep": {
       "server_only": "Requires a server connection for OAuth authentication. In local mode, use Health Connect below to read Garmin data directly from your Android device.",
       "metrics_desc": "Steps, sleep, heart rate, HRV, SpO2, Body Battery, stress. Requires the Garmin Health API partnership.",
-      "authorize_desc": "Authorize NutriTrace to read your Garmin data."
+      "authorize_desc": "Authorize MOUV Nutrition to read your Garmin data."
     },
     "withings_deep": {
       "server_only": "Requires a server connection for OAuth authentication. In local mode, use Health Connect below to read Withings data directly from your Android device.",
-      "authorize_desc": "Authorize NutriTrace to read your Withings data."
+      "authorize_desc": "Authorize MOUV Nutrition to read your Withings data."
     },
     "fitbit": {
       "title": "Fitbit",
@@ -1573,7 +1573,7 @@
       "long_range_warn": "⚠ Long ranges may take several minutes and approach Fitbit API rate limits.",
       "relink_required": "Re-link required by May 31, 2026",
       "relink_button": "Re-link Fitbit",
-      "authorize_desc": "Authorize NutriTrace to read your Fitbit data via Google Health.",
+      "authorize_desc": "Authorize MOUV Nutrition to read your Fitbit data via Google Health.",
       "setup_guide_link": "Setup guide →",
       "client_id_placeholder": "From Google Cloud Console → APIs & Services → Credentials",
       "redirect_help": "Add this exact URI to your Google Cloud OAuth client's Authorized redirect URIs list",
@@ -1590,7 +1590,7 @@
       "enable_desc": "Steps, sleep, heart rate, HRV, SpO2, Body Battery, stress. Requires the Garmin Health API partnership.",
       "apply_link": "Apply for access →",
       "long_range_warn": "⚠ Garmin's API caps reliable historical data near 6 months…",
-      "authorize_desc": "Authorize NutriTrace to read your Garmin data.",
+      "authorize_desc": "Authorize MOUV Nutrition to read your Garmin data.",
       "creds_desc": "OAuth 1.0a credentials from your approved Garmin Health API app. Redirect URI must match exactly.",
       "creds_link": "Get API credentials →",
       "consumer_key": "Consumer Key",
@@ -1609,7 +1609,7 @@
       "enable_desc": "Body composition from scales (weight, fat %, muscle, bone mass, and more).",
       "dashboard_link": "Developer dashboard →",
       "long_range_warn": "⚠ Long ranges may take several minutes and approach Withings API rate limits.",
-      "authorize_desc": "Authorize NutriTrace to read your Withings data.",
+      "authorize_desc": "Authorize MOUV Nutrition to read your Withings data.",
       "creds_desc": "Create a Withings developer account…",
       "client_id_placeholder": "e.g. abc123def456",
       "redirect_help": "Add this exact URI to your Withings app's redirect URL list",
@@ -1637,7 +1637,7 @@
       "status_unsupported": "Not supported on this device",
       "mode_scheduled": "Scheduled",
       "bg_sync_label": "Background Sync",
-      "bg_sync_desc": "Runs hourly in the background even when NutriTrace is closed, so today's wearable data is already on the server when you open NutriTrace elsewhere. If syncs stop running, check Android Settings → Apps → NutriTrace → Battery and set it to Unrestricted. Some launchers (Samsung, Xiaomi, OnePlus) also need NutriTrace added to the \"never sleeping apps\" or auto-start whitelist.",
+      "bg_sync_desc": "Runs hourly in the background even when MOUV Nutrition is closed, so today's wearable data is already on the server when you open MOUV Nutrition elsewhere. If syncs stop running, check Android Settings → Apps → MOUV Nutrition → Battery and set it to Unrestricted. Some launchers (Samsung, Xiaomi, OnePlus) also need MOUV Nutrition added to the \"never sleeping apps\" or auto-start whitelist.",
       "synced_count": "Synced {count} Health Connect metric(s) for {date}",
       "sync_failed": "Health Connect sync failed: "
     },
@@ -1880,7 +1880,7 @@
     }
   },
   "settings_webhooks": {
-    "intro": "Outgoing webhooks notify another service the instant something happens in NutriTrace: a food logged, water logged, a body stat logged, or a nutrition goal reached. Each webhook fires a signed HTTP POST to a URL you provide.",
+    "intro": "Outgoing webhooks notify another service the instant something happens in MOUV Nutrition: a food logged, water logged, a body stat logged, or a nutrition goal reached. Each webhook fires a signed HTTP POST to a URL you provide.",
     "disabled_notice": "Webhooks are not enabled on this server. A webhook can still be created, but it won't fire until WEBHOOKS_ENABLED=1 is set.",
     "just_created": {
       "title": "Webhook created:",
@@ -2321,7 +2321,7 @@
     "verifying": "Verifying invite…",
     "invalid_link": "This invite link is invalid or has expired. Ask your admin for a new one.",
     "success": "Account created! Redirecting…",
-    "intro": "You've been invited to NutriTrace. Choose a username and password to get started.",
+    "intro": "You've been invited to MOUV Nutrition. Choose a username and password to get started.",
     "intro_with_email": "You were invited as <strong>{email}</strong>. Choose a username and password to get started.",
     "username_label": "Username *",
     "username_placeholder": "Choose a username",

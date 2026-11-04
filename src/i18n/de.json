@@ -421,7 +421,7 @@
     "no_signin_methods": "Keine Anmeldemethoden verfügbar. Bitte wende dich an deine Administration.",
     "biometric": {
       "sign_in_button": "Mit Biometrie anmelden",
-      "prompt": "Bei NutriTrace anmelden",
+      "prompt": "Bei MOUV Nutrition anmelden",
       "no_saved": "Keine Zugangsdaten hinterlegt. Bitte melde dich zuerst einmal mit deinem Passwort an.",
       "expired": "Deine gespeicherten Anmeldedaten sind abgelaufen. Bitte melde dich mit deinem Passwort an.",
       "failed": "Biometrische Authentifizierung fehlgeschlagen. Bitte verwende stattdessen dein Passwort."
@@ -550,7 +550,7 @@
       "finish": "Fertigstellen"
     },
     "welcome": {
-      "title": "Willkommen bei NutriTrace",
+      "title": "Willkommen bei MOUV Nutrition",
       "desc": "Dein persönlicher Ernährungstracker. Lass uns die Einrichtung in etwa einer Minute erledigen."
     },
     "name": {
@@ -1510,8 +1510,8 @@
       "workout_history_desc": "Zeigt aufgezeichnete Trainings mit GPS-Streckenkarten im Tab „Bewegung“ an. Erfordert ein GPS-fähiges Gerät.",
       "custom_days_ph": "Tage",
       "custom_days_title": "Benutzerdefinierte Anzahl von Tagen (maximal {max})",
-      "authorize_desc": "Autorisiere NutriTrace, deine Daten von {provider} zu lesen.",
-      "authorize_desc_fitbit": "Autorisiere NutriTrace, deine Fitbit-Daten über Google Health zu lesen.",
+      "authorize_desc": "Autorisiere MOUV Nutrition, deine Daten von {provider} zu lesen.",
+      "authorize_desc_fitbit": "Autorisiere MOUV Nutrition, deine Fitbit-Daten über Google Health zu lesen.",
       "server_only_desc": "Erfordert eine Serververbindung für die OAuth-Authentifizierung. Nutze im lokalen Modus unten „Health Connect“, um {provider}-Daten direkt vom Smartphone auszulesen.",
       "sync_range_desc": "Wie weit die manuelle Synchronisation in die Vergangenheit zurückreicht.",
       "sync_range_desc_fitbit": "Wie weit die manuelle Synchronisation zurückreicht. Die automatische Synchronisation umfasst immer nur den heutigen Tag.",
@@ -1529,7 +1529,7 @@
       "legacy_desc": "Schritte, Aktivität, Schlafphasen, Puls, HRV, SpO2. Die alte Fitbit-Web-API wird eingestellt; neue Verbindungen sollten Google Health nutzen.",
       "retired_desc": "Die alte Fitbit-Web-API wird eingestellt. Verbinde dich unten über Google Health, um dieselben Daten über die Google Fitness-API abzurufen.",
       "relink_label": "Erneute Verknüpfung erforderlich bis 31. Mai 2026",
-      "authorize_desc": "Autorisiere NutriTrace, deine Fitbit-Daten über Google Health zu lesen.",
+      "authorize_desc": "Autorisiere MOUV Nutrition, deine Fitbit-Daten über Google Health zu lesen.",
       "setup_desc": "Die Fitbit-Einrichtung nutzt jetzt die Google Cloud Console. Erstelle dort einen OAuth-2.0-Client vom Typ Webanwendung und trage Client-ID und Secret hier ein.",
       "setup_link": "Einrichtungs-Anleitung →",
       "client_id_ph": "Aus Google Cloud Console → APIs & Dienste → Anmeldedaten",
@@ -1539,11 +1539,11 @@
     "garmin_deep": {
       "server_only": "Erfordert eine Serververbindung für die OAuth-Authentifizierung. Nutze im lokalen Modus unten Health Connect, um Garmin-Daten direkt von deinem Android-Gerät auszulesen.",
       "metrics_desc": "Schritte, Schlaf, Puls, HRV, SpO2, Body Battery, Stress. Erfordert eine Garmin Health API-Partnerschaft.",
-      "authorize_desc": "Autorisiere NutriTrace, deine Garmin-Daten zu lesen."
+      "authorize_desc": "Autorisiere MOUV Nutrition, deine Garmin-Daten zu lesen."
     },
     "withings_deep": {
       "server_only": "Erfordert eine Serververbindung für die OAuth-Authentifizierung. Nutze im lokalen Modus unten Health Connect, um Withings-Daten direkt von deinem Android-Gerät auszulesen.",
-      "authorize_desc": "Autorisiere NutriTrace, deine Withings-Daten zu lesen."
+      "authorize_desc": "Autorisiere MOUV Nutrition, deine Withings-Daten zu lesen."
     },
     "fitbit": {
       "title": "Fitbit",
@@ -1557,7 +1557,7 @@
       "long_range_warn": "⚠ Große Zeiträume können mehrere Minuten dauern und an API-Limits stoßen.",
       "relink_required": "Erneute Verknüpfung erforderlich bis 31. Mai 2026",
       "relink_button": "Fitbit erneut verknüpfen",
-      "authorize_desc": "Autorisiere NutriTrace, deine Fitbit-Daten über Google Health zu lesen.",
+      "authorize_desc": "Autorisiere MOUV Nutrition, deine Fitbit-Daten über Google Health zu lesen.",
       "setup_guide_link": "Einrichtungs-Anleitung →",
       "client_id_placeholder": "Aus Google Cloud Console → APIs & Dienste → Anmeldedaten",
       "redirect_help": "Trage diese exakte URI in die Liste autorisierter Weiterleitungs-URIs ein",
@@ -1574,7 +1574,7 @@
       "enable_desc": "Schritte, Schlaf, Puls, HRV, SpO2, Body Battery, Stress. Erfordert eine Garmin Health API-Partnerschaft.",
       "apply_link": "Zugang beantragen →",
       "long_range_warn": "⚠ Die Garmin-API begrenzt verlässliche historische Daten auf ca. 6 Monate…",
-      "authorize_desc": "Autorisiere NutriTrace, deine Garmin-Daten zu lesen.",
+      "authorize_desc": "Autorisiere MOUV Nutrition, deine Garmin-Daten zu lesen.",
       "creds_desc": "OAuth-1.0a-Zugangsdaten aus deiner freigegebenen Garmin Health API-App. Die Weiterleitungs-URI muss exakt übereinstimmen.",
       "creds_link": "API-Zugangsdaten abrufen →",
       "consumer_key": "Consumer-Key",
@@ -1593,7 +1593,7 @@
       "enable_desc": "Körperzusammensetzung von Waagen (Gewicht, Fettanteil, Muskel- und Knochenmasse etc.).",
       "dashboard_link": "Entwickler-Dashboard →",
       "long_range_warn": "⚠ Große Zeiträume können mehrere Minuten dauern und an Withings-API-Limits stoßen.",
-      "authorize_desc": "Autorisiere NutriTrace, deine Withings-Daten zu lesen.",
+      "authorize_desc": "Autorisiere MOUV Nutrition, deine Withings-Daten zu lesen.",
       "creds_desc": "Erstelle ein Withings-Entwicklerkonto…",
       "client_id_placeholder": "z. B. abc123def456",
       "redirect_help": "Trage diese exakte URI in die Weiterleitungs-URL-Liste deiner Withings-App ein",
@@ -1621,7 +1621,7 @@
       "status_unsupported": "Auf diesem Gerät nicht unterstützt",
       "mode_scheduled": "Nach Zeitplan",
       "bg_sync_label": "Hintergrund-Synchronisation",
-      "bg_sync_desc": "Synchronisiert stündlich im Hintergrund, auch wenn die App geschlossen ist. Falls die Synchronisation stoppt, stelle unter Android-Einstellungen → Apps → NutriTrace den Akku auf „Uneingeschränkt“. Bei einigen Herstellern (Samsung, Xiaomi, OnePlus) muss NutriTrace zusätzlich zur Ausnahmeliste für den Standby-Modus oder den Autostart hinzugefügt werden.",
+      "bg_sync_desc": "Synchronisiert stündlich im Hintergrund, auch wenn die App geschlossen ist. Falls die Synchronisation stoppt, stelle unter Android-Einstellungen → Apps → MOUV Nutrition den Akku auf „Uneingeschränkt“. Bei einigen Herstellern (Samsung, Xiaomi, OnePlus) muss MOUV Nutrition zusätzlich zur Ausnahmeliste für den Standby-Modus oder den Autostart hinzugefügt werden.",
       "synced_count": "{count} Health Connect-Messwert(e) für {date} synchronisiert",
       "sync_failed": "Health Connect-Synchronisation fehlgeschlagen: "
     },
@@ -1864,7 +1864,7 @@
     }
   },
   "settings_webhooks": {
-    "intro": "Ausgehende Webhooks benachrichtigen andere Dienste sofort, wenn in NutriTrace etwas passiert (z. B. Lebensmittel eingetragen, Wasser erfasst, Tagesziel erreicht). Jeder Webhook sendet einen signierten HTTP-POST-Request an eine von dir angegebene URL.",
+    "intro": "Ausgehende Webhooks benachrichtigen andere Dienste sofort, wenn in MOUV Nutrition etwas passiert (z. B. Lebensmittel eingetragen, Wasser erfasst, Tagesziel erreicht). Jeder Webhook sendet einen signierten HTTP-POST-Request an eine von dir angegebene URL.",
     "disabled_notice": "Webhooks sind auf diesem Server nicht aktiviert. Ein Webhook kann zwar angelegt werden, wird aber erst ausgeführt, wenn WEBHOOKS_ENABLED=1 gesetzt ist.",
     "just_created": {
       "title": "Webhook erstellt:",
@@ -2305,7 +2305,7 @@
     "verifying": "Einladung wird überprüft…",
     "invalid_link": "Dieser Einladungslink ist ungültig oder abgelaufen. Bitte deine Administration um einen neuen Link.",
     "success": "Konto erstellt! Weiterleitung…",
-    "intro": "Du wurdest zu NutriTrace eingeladen. Wähle einen Benutzernamen und ein Passwort, um loszulegen.",
+    "intro": "Du wurdest zu MOUV Nutrition eingeladen. Wähle einen Benutzernamen und ein Passwort, um loszulegen.",
     "intro_with_email": "Du wurdest als <strong>{email}</strong> eingeladen. Wähle einen Benutzernamen und ein Passwort, um loszulegen.",
     "username_label": "Benutzername *",
     "username_placeholder": "Wähle einen Benutzernamen",

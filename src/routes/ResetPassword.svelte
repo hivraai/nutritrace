@@ -63,7 +63,7 @@
 <div class="login-page">
   <div class="login-card card">
     <div class="login-logo">
-      <img src={iconUrl('/icons/logo.png')} alt="NutriTrace" class="logo-img" />
+      <img src={iconUrl('/icons/logo.png')} alt="MOUV" class="logo-img" />
       <h1 class="login-title">{$_('reset_password.title')}</h1>
     </div>
 

@@ -7,9 +7,9 @@
 <div class="section-body">
   <div class="card settings-card">
     <div class="about-hero">
-      <img src={iconUrl('/icons/logo.png')} alt="NutriTrace" class="about-icon" />
+      <img src={iconUrl('/icons/logo.png')} alt="MOUV" class="about-icon" />
       <div>
-        <div class="about-name">NutriTrace</div>
+        <div class="about-name">MOUV Nutrition</div>
         <div class="about-version text-3 text-sm">
           {APP_VERSION}
           <span class="platform-tag">{isNative ? 'Android' : 'PWA'}</span>
