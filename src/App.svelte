@@ -194,6 +194,17 @@
   // Fires on mount + on every change, so picking a new value in the Settings
   // dropdown immediately re-renders all $_ calls in the running app.
   $: if ($language) locale.set($language);
+
+  // A member's first tap on the MOUV WhatsApp button carries their language.
+  {
+    const url = new URL(window.location.href);
+    const fromLink = url.searchParams.get('lang');
+    if (fromLink === 'es' || fromLink === 'en') {
+      language.set(fromLink);
+      url.searchParams.delete('lang');
+      window.history.replaceState(window.history.state, '', url);
+    }
+  }
   import NativeSetup from './routes/NativeSetup.svelte';
 
   // Show native setup wizard before anything else on first Android launch

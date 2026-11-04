@@ -1393,7 +1393,7 @@
             <UnitPicker bind:value={item.unit} />
           </div>
           <div style="width:60px">
-            <label class="form-label" style="font-size:11px;color:var(--text-3);display:block;margin-bottom:5px">Qty</label>
+            <label class="form-label" style="font-size:11px;color:var(--text-3);display:block;margin-bottom:5px">{$_('mouv.ui.qty')}</label>
             <input class="input" type="text" inputmode="decimal" use:decimalInput bind:value={item.qty} style="width:100%;font-size:16px" />
           </div>
         </div>

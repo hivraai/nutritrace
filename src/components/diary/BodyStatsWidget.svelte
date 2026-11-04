@@ -1,4 +1,5 @@
 <script>
+  import { _ } from 'svelte-i18n';
   /**
    * Diary → right column → Body Stats widget (combined weight +
    * measurements). Replaces the two separate WeightWidget +
@@ -77,7 +78,7 @@
 <section class="bs-widget card">
   <header class="bs-header">
     <span class="material-symbols-rounded bs-icon">monitor_weight</span>
-    <span class="bs-title">Body Stats</span>
+    <span class="bs-title">{$_('mouv.ui.body_stats')}</span>
     <button class="bs-open" on:click={onOpen} title="Open Body Stats sheet">
       <span class="material-symbols-rounded">open_in_full</span>
     </button>
@@ -95,8 +96,8 @@
           <span class="material-symbols-rounded">edit</span>
         </button>
       {:else}
-        <span class="bs-weight-empty">Weight not logged</span>
-        <button class="bs-quick-log" on:click={startEditWeight}>Log</button>
+        <span class="bs-weight-empty">{$_('mouv.ui.weight_not_logged')}</span>
+        <button class="bs-quick-log" on:click={startEditWeight}>{$_('mouv.ui.log')}</button>
       {/if}
     {:else}
       <div class="bs-edit-form" transition:slide={{ duration: 160 }}>
@@ -134,7 +135,7 @@
       {/each}
     </ul>
   {:else}
-    <div class="bs-empty">No measurements logged today</div>
+    <div class="bs-empty">{$_('mouv.ui.no_measurements_logged_today')}</div>
   {/if}
 
   <button class="btn btn-primary bs-log-btn" on:click={onOpen}>

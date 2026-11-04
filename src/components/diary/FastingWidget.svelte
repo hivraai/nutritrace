@@ -298,7 +298,7 @@
           </div>
           <div class="fast-edit-actions">
             <button class="btn btn-secondary" on:click={() => _editingStart = false}>{$_('fasting.cancel')}</button>
-            <button class="btn btn-primary" on:click={_saveEditStart}>Save</button>
+            <button class="btn btn-primary" on:click={_saveEditStart}>{$_('mouv.ui.save')}</button>
           </div>
         </div>
       {/if}

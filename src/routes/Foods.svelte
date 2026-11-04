@@ -2071,13 +2071,13 @@
              more than one source to pick from. Meals/Recipes with
              just Local (no shared users) hide the section entirely
              — no dead heading with a single chip beneath. -->
-        <p class="foods-filter-heading">Sources</p>
+        <p class="foods-filter-heading">{$_('mouv.ui.sources')}</p>
         <div class="foods-rail-chips foods-rail-sources">
           {@render sourceChips()}
         </div>
       {/if}
       {#if activeTab === 0 && searchSource === 'local' && $foodsShowCategories && $foodCategories && $foodCategories.length > 0}
-        <p class="foods-filter-heading">Categories</p>
+        <p class="foods-filter-heading">{$_('mouv.ui.categories')}</p>
         <div class="foods-rail-chips foods-rail-cats">
           {@render catChips()}
         </div>
@@ -2085,7 +2085,7 @@
       {#if availableSources.length <= 1 && !(activeTab === 0 && searchSource === 'local' && $foodsShowCategories && $foodCategories && $foodCategories.length > 0)}
         <!-- Rail would be empty otherwise — leave a low-key hint so
              the column doesn't render as a mysteriously-empty box. -->
-        <p class="foods-filter-empty">No filters available for this tab.</p>
+        <p class="foods-filter-empty">{$_('mouv.ui.no_filters_available_for_this_tab')}</p>
       {/if}
     </aside>
     {/if}
@@ -2683,7 +2683,7 @@
             <input class="input" type="text" inputmode="decimal" use:decimalInput bind:value={item.portion} data-field="portion" style="font-size:16px;width:100%" />
           </div>
           <div style="width:100px">
-            <label class="form-label" style="font-size:11px;color:var(--text-3);display:block;margin-bottom:5px">Unit</label>
+            <label class="form-label" style="font-size:11px;color:var(--text-3);display:block;margin-bottom:5px">{$_('mouv.ui.unit')}</label>
             <UnitPicker bind:value={item.unit} />
           </div>
           <div style="width:72px">
@@ -2759,7 +2759,7 @@
           style="font-size:16px;width:100%" />
       </div>
       <div style="width:100px">
-        <label class="form-label" style="font-size:11px;color:var(--text-3);display:block;margin-bottom:6px">Unit</label>
+        <label class="form-label" style="font-size:11px;color:var(--text-3);display:block;margin-bottom:6px">{$_('mouv.ui.unit')}</label>
         <UnitPicker bind:value={promptUnit} />
       </div>
     </div>

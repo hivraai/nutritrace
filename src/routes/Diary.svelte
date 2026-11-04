@@ -1821,7 +1821,7 @@
        "put the hide button inside DaySummary's header" approach
        so DaySummary can go back to just %/g toggle + open_in_full. -->
   <header class="rail-title">
-    <span class="rail-title-text">Overview</span>
+    <span class="rail-title-text">{$_('mouv.ui.overview')}</span>
     <div class="rail-title-actions">
       {#if _railMode === 'pinned'}
         <button
@@ -2909,7 +2909,7 @@
           <input class="input" type="text" inputmode="decimal" use:decimalInput bind:value={editPortion} data-field="portion" style="width:100%" />
         </div>
         <div style="width:100px">
-          <label class="form-label" style="font-size:11px;color:var(--text-3);display:block;margin-bottom:4px">Unit</label>
+          <label class="form-label" style="font-size:11px;color:var(--text-3);display:block;margin-bottom:4px">{$_('mouv.ui.unit')}</label>
           <UnitPicker bind:value={editUnit} />
         </div>
       </div>
@@ -3048,11 +3048,11 @@
       <div class="sheet-handle"></div>
       <p class="sheet-title">Copy "{copySourceName}" to…</p>
       <label class="copy-date-label">
-        <span>Date</span>
+        <span>{$_('mouv.ui.date')}</span>
         <DateInput bind:value={copyDate} />
       </label>
       <label class="copy-date-label">
-        <span>Meal</span>
+        <span>{$_('mouv.ui.meal')}</span>
         <select bind:value={copyMeal} class="select sel-sm" style="width:100%">
           {#each meals as m, i}
             <option value={i}>{m}</option>
@@ -3263,7 +3263,7 @@
                   {_nsContributors.allShown ? 'All Contributors' : 'Top Contributors'}
                 </div>
                 {#if _nsContributors.visible.length === 0}
-                  <div class="ns-contrib-empty">No items contribute to this nutrient.</div>
+                  <div class="ns-contrib-empty">{$_('mouv.ui.no_items_contribute_to_this_nutrient')}</div>
                 {:else}
                   {#each _nsContributors.visible as c}
                     <div class="ns-contrib-row">

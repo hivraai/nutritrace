@@ -357,7 +357,7 @@
                 {m.food?.name || m.item.name}
                 {#if m.source === 'local'}<span class="ql-badge ql-badge-local">{$_('smart_log.badge_local')}</span>{/if}
                 {#if m.source === 'off'}<span class="ql-badge ql-badge-off">OFF</span>{/if}
-                {#if m.source === 'meal'}<span class="ql-badge ql-badge-meal">Meal</span>{/if}
+                {#if m.source === 'meal'}<span class="ql-badge ql-badge-meal">{$_('mouv.ui.meal')}</span>{/if}
                 {#if m.source === 'recipe'}<span class="ql-badge ql-badge-recipe">{$_('smart_log.badge_recipe')}</span>{/if}
                 {#if m.source === 'yesterday'}<span class="ql-badge ql-badge-yesterday">{$_('smart_log.badge_yesterday')}</span>{/if}
                 {#if isWater}<span class="ql-badge ql-badge-water">{$_('smart_log.badge_water')}</span>{/if}

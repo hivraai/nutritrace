@@ -23,6 +23,59 @@
       "note": "MOUV no da consejos médicos. Las preguntas sobre tu tratamiento van con tu médico.",
       "forget": "Borrar esta respuesta",
       "failed": "No se pudo guardar. Intenta de nuevo en un momento."
+    },
+    "ui": {
+      "active_min": "Min activos",
+      "activity_impact": "Impacto de la actividad",
+      "adaptive_tdee": "TDEE adaptativo",
+      "add": "Agregar",
+      "adjusted_goal": "Meta ajustada",
+      "average": "Promedio",
+      "base_goal": "Meta base",
+      "body_stats": "Medidas corporales",
+      "body_water": "Agua corporal",
+      "bone_mass": "Masa ósea",
+      "carbs": "Carbohidratos",
+      "categories": "Categorías",
+      "confidence": "Confianza",
+      "daily_avg": "Promedio diario",
+      "date": "Fecha",
+      "fat": "Grasa",
+      "goal": "Meta",
+      "insights": "Análisis",
+      "lean": "Masa magra",
+      "learned_tdee": "TDEE aprendido",
+      "log": "Registrar",
+      "macros": "Macros",
+      "marked_complete": "Marcado como completo",
+      "meal": "Comida",
+      "metrics": "Métricas",
+      "muscle_mass": "Masa muscular",
+      "navigate": "Navegar",
+      "no_filters_available_for_this_tab": "No hay filtros para esta pestaña.",
+      "no_items_contribute_to_this_nutrient": "Ningún alimento aporta este nutriente.",
+      "no_measurements_logged_today": "Hoy no hay medidas registradas",
+      "notes": "Notas",
+      "overlays": "Capas",
+      "overview": "Resumen",
+      "preview": "Vista previa",
+      "protein": "Proteína",
+      "providers": "Proveedores",
+      "qty": "Cant.",
+      "save": "Guardar",
+      "sources": "Fuentes",
+      "summary": "Resumen",
+      "sync": "Sincronizar",
+      "sync_your_scale_or_fitness_tracker_to_see_body_stats_here": "Sincroniza tu báscula o tu reloj para ver aquí tus medidas.",
+      "this_week": "Esta semana",
+      "total_steps": "Pasos totales",
+      "trend": "Tendencia",
+      "unit": "Unidad",
+      "water": "Agua",
+      "weekly_trend": "Tendencia semanal",
+      "weight": "Peso",
+      "weight_not_logged": "Peso sin registrar",
+      "weight_source": "Fuente del peso"
     }
   },
   "nav": {
@@ -117,7 +170,17 @@
     "sign_out_waiting": "{count, plural, one {# cambio todavía no llegó a tu servidor. Si cierras sesión ahora, se va a perder. Conéctate y vuelve a intentarlo para conservarlo.} other {# cambios todavía no llegaron a tu servidor. Si cierras sesión ahora, se van a perder. Conéctate y vuelve a intentarlo para conservarlos.}}",
     "sign_out_anyway": "Salir de todos modos",
     "sync_failing": "No se puede conectar con el servidor",
-    "not_synced": "Aún no sincronizado"
+    "not_synced": "Aún no sincronizado",
+    "switch_account_waiting_title": "Hay cambios de otra cuenta pendientes",
+    "switch_account_waiting": "{count, plural, one {# cambio hecho en este dispositivo por la cuenta anterior no ha llegado al servidor. Si inicias sesión ahora, se descarta. Para conservarlo, inicia sesión primero con esa cuenta.} other {# cambios hechos en este dispositivo por la cuenta anterior no han llegado al servidor. Si inicias sesión ahora, se descartan. Para conservarlos, inicia sesión primero con esa cuenta.}}",
+    "switch_account_anyway": "Iniciar sesión de todos modos",
+    "same_server_title": "¿Es el mismo servidor?",
+    "same_server": "Este servidor está en una dirección distinta a la que usaba este dispositivo y no puede saber si es el mismo. Si lo es, tus datos se quedan aquí y se sincronizan con él. Si no, se tratan como datos de otra cuenta.",
+    "same_server_yes": "Es el mismo",
+    "same_server_no": "Es otro servidor",
+    "account_check_failed_title": "No pudimos abrir tus datos",
+    "account_check_failed": "Este dispositivo no pudo comprobar de quién son los datos que guarda, así que todavía no se muestra nada. Intenta de nuevo o cierra sesión.",
+    "pending_web_changes": "{count, plural, =0 {Sin conexión. Tu diario sigue funcionando y guarda aquí.} one {Sin conexión. # cambio espera para subir.} other {Sin conexión. # cambios esperan para subir.}}"
   },
   "settings": {
     "appearance": {
@@ -502,6 +565,13 @@
       "failed": "Falló la recuperación",
       "success": "Gestión de usuarios desactivada: ahora estás en modo de un solo usuario",
       "done": "Se desactivó la gestión de usuarios.<br>Redirigiendo…"
+    },
+    "cookie_warning": {
+      "http_title": "No se puede iniciar sesión en esta dirección",
+      "http_body": "Esta página usa HTTP sin cifrar, pero el servidor solo envía la cookie de sesión por HTTPS, así que tu navegador la descarta y vuelves a la pantalla de inicio de sesión. Abre la app por HTTPS o, en una red de confianza, define INSECURE_COOKIES=1 en el servidor y reinícialo.",
+      "dropped_title": "Tu navegador no mantuvo la sesión",
+      "dropped_body": "Tu contraseña es correcta, pero el navegador no guardó la cookie de sesión. Revisa que este sitio tenga permitidas las cookies y, si la app está detrás de un proxy inverso, que el proxy deje pasar las cookies.",
+      "fix_link": "Cómo solucionarlo"
     }
   },
   "forgot_password": {
@@ -701,9 +771,9 @@
     "add_food": "Agregar alimento",
     "notes_placeholder": "¿Cómo estuvo el día? Sueño, energía, hambre, antojos…",
     "quick_calories": {
-      "title": "Quick Calories",
-      "title_meal": "Quick Calories: {meal}",
-      "default_name": "Quick Calories",
+      "title": "Calorías rápidas",
+      "title_meal": "Calorías rápidas: {meal}",
+      "default_name": "Calorías rápidas",
       "help": "Registra solo las {unit} cuando no tienes la info nutricional completa, o cuando no quieres cargar el alimento entero. Se suma directo al diario; no se crea ningún alimento.",
       "name_label": "Nombre (opcional)",
       "name_placeholder": "Refrigerio en la oficina, desayuno del hotel…",
@@ -1210,7 +1280,9 @@
     "server_from": "Servidor:",
     "server_open_source": "Código abierto",
     "server_license": "(AGPL-3.0)",
-    "translations_from": "Traducciones con la ayuda de"
+    "translations_from": "Traducciones con la ayuda de",
+    "family_line_prefix": "Parte de la familia ",
+    "family_line_suffix": ""
   },
   "settings_merge": {
     "title": "Opciones de sincronización",
@@ -1276,7 +1348,7 @@
   "smart_log": {
     "off_no_values": "Open Food Facts no tiene los valores \"tal como se vende\" de este producto, así que no se va a registrar. Cámbialo por otro o quítalo.",
     "placeholder": "en el desayuno comí 2 huevos y tostadas",
-    "title": "Smart Log",
+    "title": "Registro inteligente",
     "badge_local": "Local",
     "badge_recipe": "Receta",
     "badge_yesterday": "Ayer",
@@ -2040,7 +2112,7 @@
       "key_hint_oai_compat": "Los endpoints locales (Ollama, LM Studio, etc.) por lo general no necesitan clave. Los proveedores en la nube como DeepSeek o Groq sí: consíguela en su panel.",
       "assistant_name": "Nombre del asistente",
       "assistant_name_ph": "Trace",
-      "smart_log": "Smart Log",
+      "smart_log": "Registro inteligente",
       "smart_log_desc": "Mantén pulsado el botón del asistente, di qué comiste, la IA identifica los ítems y la comida, los cruza con tu base de alimentos y te pide confirmación antes de guardar",
       "voice_lang": "Idioma de entrada por voz",
       "voice_lang_desc": "Idioma que escucha el micrófono. Por defecto usa el de tu dispositivo; cámbialo si hablas en otro idioma distinto al que tienes configurado.",
@@ -2337,5 +2409,10 @@
     "report_bug_desc": "Un reporte claro lo arregla para todos los que se topan con lo mismo.",
     "translate": "Ayudar a traducir",
     "translate_desc": "Haz que NutriTrace se pueda usar en tu idioma, en Weblate."
+  },
+  "attach_image": {
+    "button": "Adjuntar imagen",
+    "camera": "Cámara",
+    "gallery": "Galería"
   }
 }

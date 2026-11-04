@@ -512,7 +512,7 @@ function createSettingStore(key, defaultValue) {
 }
 
 export const appearance       = createSettingStore('appearance',       'dark');
-export const language          = createSettingStore('language',          'en');
+export const language          = createSettingStore('language',          'es');
 export const energyUnit        = createSettingStore('energyUnit',       'kcal');
 export const mealNames         = createSettingStore('mealNames',        ['Breakfast','Lunch','Dinner','Snacks']);
 export const goals             = createSettingStore('goals',            {});

@@ -967,7 +967,7 @@
   <!-- Desktop left rail: grouped metric picker. Hidden on mobile; the
        horizontal metric-scroll below still owns metric selection there. -->
   <aside class="stats-left-rail">
-    <div class="stats-rail-heading">Metrics</div>
+    <div class="stats-rail-heading">{$_('mouv.ui.metrics')}</div>
     <input class="stats-rail-search" type="search" placeholder="Filter metrics…" bind:value={_railQuery} />
     {#each groupedMetrics as g}
       {@const _filtered = g.metrics.filter(m => !_railQuery || foldText(m.label).includes(foldText(_railQuery)))}
@@ -1196,7 +1196,7 @@
   </div>
   <!-- Desktop right rail: KPI stack + overlay toggles. Hidden on mobile. -->
   <aside class="stats-right-rail">
-    <div class="stats-rail-heading">Summary</div>
+    <div class="stats-rail-heading">{$_('mouv.ui.summary')}</div>
     {#if summary}
       <div class="stats-rail-kpi">
         <span class="stats-rail-kpi-lbl">{$_('statistics_page.summary.average')}</span>
@@ -1226,7 +1226,7 @@
       {#if $diaryShowCompletion && completionStats && completionStats.total > 0}
         <!-- #207: adherence pulse; independent of the selected metric. -->
         <div class="stats-rail-kpi">
-          <span class="stats-rail-kpi-lbl" title="Days marked complete over the viewed range. Purely how consistently you closed the day, not whether goals were hit.">Marked complete</span>
+          <span class="stats-rail-kpi-lbl" title="Days marked complete over the viewed range. Purely how consistently you closed the day, not whether goals were hit.">{$_('mouv.ui.marked_complete')}</span>
           <span class="stats-rail-kpi-val">
             {completionStats.marked} / {completionStats.total}
             <span class="stats-rail-delta" class:good={completionStats.pct >= 70} class:neutral={completionStats.pct < 70}>
@@ -1241,7 +1241,7 @@
              goals (goal.min only) → up is good; else lower is good. -->
         {@const _tGood = _goalValReactive == null ? null : (_goalIsMin ? _trendDelta >= 0 : _trendDelta <= 0)}
         <div class="stats-rail-kpi">
-          <span class="stats-rail-kpi-lbl" title="Last 7-day average vs the previous 7 days. Deep trend analysis lives on the chart itself — this is the quick pulse.">Weekly trend</span>
+          <span class="stats-rail-kpi-lbl" title="Last 7-day average vs the previous 7 days. Deep trend analysis lives on the chart itself — this is the quick pulse.">{$_('mouv.ui.weekly_trend')}</span>
           <span class="stats-rail-kpi-val">
             <span class="stats-rail-delta"
               class:good={_tGood === true}
@@ -1256,21 +1256,21 @@
       <p class="stats-rail-empty text-3 text-sm">{$_('statistics_page.empty.no_data')}</p>
     {/if}
 
-    <div class="stats-rail-heading" style="margin-top:16px">Overlays</div>
+    <div class="stats-rail-heading" style="margin-top:16px">{$_('mouv.ui.overlays')}</div>
     <label class="stats-rail-check">
       <input type="checkbox" checked={$statsAvgLine}
         on:change={(e) => statsAvgLine.set(e.currentTarget.checked)} />
-      <span>Average</span>
+      <span>{$_('mouv.ui.average')}</span>
     </label>
     <label class="stats-rail-check">
       <input type="checkbox" checked={$statsGoalLine}
         on:change={(e) => statsGoalLine.set(e.currentTarget.checked)} />
-      <span>Goal</span>
+      <span>{$_('mouv.ui.goal')}</span>
     </label>
     <label class="stats-rail-check">
       <input type="checkbox" checked={$statsTrendLine}
         on:change={(e) => statsTrendLine.set(e.currentTarget.checked)} />
-      <span>Trend</span>
+      <span>{$_('mouv.ui.trend')}</span>
     </label>
     <!-- TODO: compare mode (#5) — needs loader refactor to accept a
          metric argument (loadSeries(metricId) → { labels, values }).

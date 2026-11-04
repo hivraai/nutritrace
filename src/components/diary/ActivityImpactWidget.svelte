@@ -1,4 +1,5 @@
 <script>
+  import { _ } from 'svelte-i18n';
   /**
    * Diary → right column → Activity Impact widget.
    *
@@ -42,7 +43,7 @@
   <section class="activity-widget card">
     <header class="aw-header">
       <span class="material-symbols-rounded aw-icon">directions_run</span>
-      <span class="aw-title">Activity impact</span>
+      <span class="aw-title">{$_('mouv.ui.activity_impact')}</span>
       {#if calorieGoalMode === 'dynamic'}
         <span class="aw-mode" title="Dynamic goal moves with your wearable's burn">⚡ Dynamic</span>
       {:else if calorieGoalMode === 'adaptive'}
@@ -57,7 +58,7 @@
           <span class="aw-val">{burnE.value.toLocaleString()} {burnE.unit}</span>
         </div>
         <div class="aw-row">
-          <span class="aw-label">Base goal</span>
+          <span class="aw-label">{$_('mouv.ui.base_goal')}</span>
           <span class="aw-val">{baseE.value.toLocaleString()} {baseE.unit}</span>
         </div>
         {#if hasActivity}
@@ -67,7 +68,7 @@
           </div>
         {/if}
         <div class="aw-row aw-row-total">
-          <span class="aw-label">Adjusted goal</span>
+          <span class="aw-label">{$_('mouv.ui.adjusted_goal')}</span>
           <span class="aw-val">{adjustedE.value.toLocaleString()} {adjustedE.unit}</span>
         </div>
       </div>
@@ -84,7 +85,7 @@
           </div>
         {/if}
         <div class="aw-row aw-row-total">
-          <span class="aw-label">Adjusted goal</span>
+          <span class="aw-label">{$_('mouv.ui.adjusted_goal')}</span>
           <span class="aw-val">{adjustedE.value.toLocaleString()} {adjustedE.unit}</span>
         </div>
       </div>
@@ -95,11 +96,11 @@
           <span class="aw-val aw-val-active">{activeE.value.toLocaleString()} {activeE.unit}</span>
         </div>
         <div class="aw-row">
-          <span class="aw-label">Base goal</span>
+          <span class="aw-label">{$_('mouv.ui.base_goal')}</span>
           <span class="aw-val">{baseE.value.toLocaleString()} {baseE.unit}</span>
         </div>
         <div class="aw-row aw-row-total">
-          <span class="aw-label">Adjusted goal</span>
+          <span class="aw-label">{$_('mouv.ui.adjusted_goal')}</span>
           <span class="aw-val">{adjustedE.value.toLocaleString()} {adjustedE.unit}</span>
         </div>
       </div>

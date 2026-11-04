@@ -1562,7 +1562,7 @@
         <!-- ── Left rail: providers list + Sync All (desktop only; replaces .wl-topbar-actions) ── -->
         <aside class="wl-left-rail">
           {#if _providerCount > 1}
-            <div class="wl-rail-heading">Providers</div>
+            <div class="wl-rail-heading">{$_('mouv.ui.providers')}</div>
           {/if}
 
           {#if $healthConnectEnabled && isNative}
@@ -2169,7 +2169,7 @@
               {#if $offlineState.online === false}
                 <p class="text-3 text-sm">{$_('wellness_page.empty.offline')}</p>
               {:else}
-                <p class="text-3 text-sm">Tap <strong>Sync</strong> to pull the latest from your device.</p>
+                <p class="text-3 text-sm">Tap <strong>{$_('mouv.ui.sync')}</strong> to pull the latest from your device.</p>
               {/if}
             </div>
           {/if}
@@ -2239,7 +2239,7 @@
                 <div class="seg-header">
                   <span></span>
                   <span>{$_('wellness_deep.muscle')}</span>
-                  <span>Lean</span>
+                  <span>{$_('mouv.ui.lean')}</span>
                 </div>
                 {#each [
                   { label: 'Left Arm',  muscle: 'muscle_mass_left_arm_kg',  lean: 'lean_mass_left_arm_kg'  },
@@ -2269,7 +2269,7 @@
               {#if $offlineState.online === false}
                 <p class="text-3 text-sm">{$_('wellness_page.empty.offline')}</p>
               {:else}
-                <p class="text-3 text-sm">Sync your scale or fitness tracker to see body stats here.</p>
+                <p class="text-3 text-sm">{$_('mouv.ui.sync_your_scale_or_fitness_tracker_to_see_body_stats_here')}</p>
               {/if}
             </div>
           {/if}
@@ -2284,11 +2284,11 @@
               Sync body composition from your Withings scale. Weight, body fat %, muscle mass, bone mass, and more — automatically filled into your diary.
             </p>
             <div class="connect-chips">
-              <span class="connect-chip"><span class="material-symbols-rounded">monitor_weight</span> Weight</span>
+              <span class="connect-chip"><span class="material-symbols-rounded">monitor_weight</span> {$_('mouv.ui.weight')}</span>
               <span class="connect-chip"><span class="material-symbols-rounded">percent</span> Body Fat %</span>
-              <span class="connect-chip"><span class="material-symbols-rounded">fitness_center</span> Muscle Mass</span>
-              <span class="connect-chip"><span class="material-symbols-rounded">water_drop</span> Body Water</span>
-              <span class="connect-chip"><span class="material-symbols-rounded">emergency</span> Bone Mass</span>
+              <span class="connect-chip"><span class="material-symbols-rounded">fitness_center</span> {$_('mouv.ui.muscle_mass')}</span>
+              <span class="connect-chip"><span class="material-symbols-rounded">water_drop</span> {$_('mouv.ui.body_water')}</span>
+              <span class="connect-chip"><span class="material-symbols-rounded">emergency</span> {$_('mouv.ui.bone_mass')}</span>
               <span class="connect-chip"><span class="material-symbols-rounded">ecg_heart</span> ECG &amp; AFib</span>
             </div>
             <button class="btn btn-primary connect-btn" on:click={connectWithings} disabled={withingsConnecting}>
@@ -2328,7 +2328,7 @@
             </button>
           {/if}
 
-          <div class="wl-rail-heading">Insights</div>
+          <div class="wl-rail-heading">{$_('mouv.ui.insights')}</div>
 
           {#if activeTab === 'activity'}
             <!-- Activity rail: derived weekly aggregates from the
@@ -2349,18 +2349,18 @@
                   <div class="si-header">
                     <span class="material-symbols-rounded si-icon">calendar_view_week</span>
                     <div class="si-title-wrap">
-                      <span class="si-title">This Week</span>
+                      <span class="si-title">{$_('mouv.ui.this_week')}</span>
                       <span class="si-sub">Last 7 days</span>
                     </div>
                   </div>
                   <div class="wl-rail-stat-grid">
                     <div class="wl-rail-stat">
                       <span class="wl-rail-stat-val">{_stepsTotal.toLocaleString()}</span>
-                      <span class="wl-rail-stat-lbl">Total steps</span>
+                      <span class="wl-rail-stat-lbl">{$_('mouv.ui.total_steps')}</span>
                     </div>
                     <div class="wl-rail-stat">
                       <span class="wl-rail-stat-val">{_stepsAvg.toLocaleString()}</span>
-                      <span class="wl-rail-stat-lbl">Daily avg</span>
+                      <span class="wl-rail-stat-lbl">{$_('mouv.ui.daily_avg')}</span>
                     </div>
                     <div class="wl-rail-stat">
                       <span class="wl-rail-stat-val">{_goalHits}/7</span>
@@ -2368,7 +2368,7 @@
                     </div>
                     <div class="wl-rail-stat">
                       <span class="wl-rail-stat-val">{Math.round(_amTotal).toLocaleString()}</span>
-                      <span class="wl-rail-stat-lbl">Active min</span>
+                      <span class="wl-rail-stat-lbl">{$_('mouv.ui.active_min')}</span>
                     </div>
                   </div>
                   {#if _calTotal > 0}

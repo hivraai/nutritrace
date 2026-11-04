@@ -217,13 +217,14 @@ router.get('/wa-link', waLinkLimit, wrap((req, res) => {
     const created = db.prepare(`INSERT INTO users (username, password_hash, role) VALUES (?, ?, 'user')`).run(username, hash);
     user = db.prepare('SELECT * FROM users WHERE id = ?').get(created.lastInsertRowid);
   }
+  const firstTap = !db.prepare('SELECT 1 FROM mouv_members WHERE user_id = ?').get(user.id);
   db.prepare(`INSERT INTO mouv_members (user_id, contact_id, tenant_id) VALUES (?, ?, ?)
     ON CONFLICT(user_id) DO UPDATE SET contact_id = excluded.contact_id, tenant_id = excluded.tenant_id`).run(user.id, link.sub, link.tid);
   // HIVRA checked the member's pack when it signed this link, so the session
   // ends with the link: when a pack ends, the page ends within a day.
   const remainingMs = link.exp - Date.now();
   res.cookie('nt_token', signToken(user, Math.ceil(remainingMs / 1000)), { ...COOKIE_OPTS, maxAge: remainingMs });
-  res.redirect(302, '/');
+  res.redirect(302, firstTap ? `/?lang=${link.lang === 'en' ? 'en' : 'es'}` : '/');
 }));
 
 // ── Logout ─────────────────────────────────────────────────────────────────

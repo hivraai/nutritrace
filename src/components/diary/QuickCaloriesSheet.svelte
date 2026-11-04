@@ -149,7 +149,7 @@
                  bind:value={_fat} on:keydown={_onKey} />
           <span class="qc-macro-unit" style="color:var(--macro-fat)">g</span>
         </div>
-        <span class="qc-macro-label">Fat</span>
+        <span class="qc-macro-label">{$_('mouv.ui.fat')}</span>
       </div>
     </div>
 

@@ -1,4 +1,5 @@
 <script>
+  import { _ } from 'svelte-i18n';
   /**
    * Diary → right column → Water widget.
    *
@@ -82,7 +83,7 @@
 <section class="water-widget card">
   <header class="ww-header">
     <span class="material-symbols-rounded ww-icon">water_drop</span>
-    <span class="ww-title">Water</span>
+    <span class="ww-title">{$_('mouv.ui.water')}</span>
     <span class="ww-total">{displayTotal} <span class="ww-of">of {displayGoal}</span></span>
     {#if onOpen}
       <button class="ww-open" on:click={onOpen} title="Open water sheet" aria-label="Open water sheet">
@@ -120,7 +121,7 @@
         placeholder={unit === 'ml' ? 'ml' : unit === 'oz' ? 'fl oz' : unit}
         class="input ww-custom-input"
       />
-      <button class="ww-custom-save btn btn-primary" on:click={commitCustom}>Add</button>
+      <button class="ww-custom-save btn btn-primary" on:click={commitCustom}>{$_('mouv.ui.add')}</button>
     </div>
   {/if}
 

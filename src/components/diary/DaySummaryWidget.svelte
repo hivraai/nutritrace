@@ -1,4 +1,5 @@
 <script>
+  import { _ } from 'svelte-i18n';
   /**
    * Diary → right column → Day Summary widget.
    *
@@ -76,19 +77,19 @@
       <span class="dsw-macro-val">
         {Math.round(protein)}{#if $macroLegendMode === 'grams' && proteinGoal != null}/{Math.round(proteinGoal)}{/if}g
       </span>
-      <span class="dsw-macro-lbl">Protein</span>
+      <span class="dsw-macro-lbl">{$_('mouv.ui.protein')}</span>
     </div>
     <div class="dsw-macro-pill" style="--pill-bg:var(--macro-carbs-dim);--pill-fg:var(--macro-carbs)">
       <span class="dsw-macro-val">
         {Math.round(carbs)}{#if $macroLegendMode === 'grams' && carbGoal != null}/{Math.round(carbGoal)}{/if}g
       </span>
-      <span class="dsw-macro-lbl">Carbs</span>
+      <span class="dsw-macro-lbl">{$_('mouv.ui.carbs')}</span>
     </div>
     <div class="dsw-macro-pill" style="--pill-bg:var(--macro-fat-dim);--pill-fg:var(--macro-fat)">
       <span class="dsw-macro-val">
         {Math.round(fat)}{#if $macroLegendMode === 'grams' && fatGoal != null}/{Math.round(fatGoal)}{/if}g
       </span>
-      <span class="dsw-macro-lbl">Fat</span>
+      <span class="dsw-macro-lbl">{$_('mouv.ui.fat')}</span>
     </div>
   </div>
 </section>

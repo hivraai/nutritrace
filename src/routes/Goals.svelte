@@ -712,7 +712,7 @@
 
     <!-- ─── LEFT RAIL (desktop only) ────────────────────────────────────── -->
     <aside class="goals-left-rail">
-      <div class="goals-rail-heading">Navigate</div>
+      <div class="goals-rail-heading">{$_('mouv.ui.navigate')}</div>
       <button class="goals-rail-nav" class:active={activeTab === 'yours'} on:click={() => activeTab = 'yours'}>
         <span class="material-symbols-rounded">flag</span>
         Your Goals
@@ -747,20 +747,20 @@
       {/if}
 
       {#if $calorieGoalMode === 'adaptive' && _adaptiveLoaded}
-        <div class="goals-rail-heading" style="margin-top:12px">Adaptive TDEE</div>
+        <div class="goals-rail-heading" style="margin-top:12px">{$_('mouv.ui.adaptive_tdee')}</div>
         <div class="goals-rail-adaptive">
           {#if _adaptive?.ready}
             {@const _tdeeE = Nutrition.displayEnergy(_adaptive.tdee, $energyUnit)}
             <div class="goals-rail-adaptive-line">
-              <span class="text-3 text-sm">Learned TDEE</span>
+              <span class="text-3 text-sm">{$_('mouv.ui.learned_tdee')}</span>
               <strong>{_tdeeE.value.toLocaleString()} {_tdeeE.unit}</strong>
             </div>
             <div class="goals-rail-adaptive-line">
-              <span class="text-3 text-sm">Confidence</span>
+              <span class="text-3 text-sm">{$_('mouv.ui.confidence')}</span>
               <strong>{Math.round((_adaptive.confidence || 0) * 100)}%</strong>
             </div>
             <div class="goals-rail-adaptive-line">
-              <span class="text-3 text-sm">Weight source</span>
+              <span class="text-3 text-sm">{$_('mouv.ui.weight_source')}</span>
               <strong style="text-transform:capitalize">{_adaptive.weightSource}</strong>
             </div>
           {:else}
@@ -859,22 +859,22 @@
       <div class="card goals-macro-card">
         <div class="goals-macro-head">
           <div>
-            <div class="font-medium">Macros</div>
+            <div class="font-medium">{$_('mouv.ui.macros')}</div>
           </div>
         </div>
         <div class="goals-macro-grid">
           <button class="goals-macro-cell" on:click={() => openEdit({ id: 'proteins',      label: 'Protein', unit: 'g' })}>
-            <span class="gm-lbl">Protein</span>
+            <span class="gm-lbl">{$_('mouv.ui.protein')}</span>
             <span class="gm-val">{_proteinGoalG ?? '—'}<span class="gm-u">g</span></span>
             <span class="gm-pct">{_macroPct.p}%</span>
           </button>
           <button class="goals-macro-cell" on:click={() => openEdit({ id: 'carbohydrates', label: 'Carbohydrates', unit: 'g' })}>
-            <span class="gm-lbl">Carbs</span>
+            <span class="gm-lbl">{$_('mouv.ui.carbs')}</span>
             <span class="gm-val">{_carbsGoalG ?? '—'}<span class="gm-u">g</span></span>
             <span class="gm-pct">{_macroPct.c}%</span>
           </button>
           <button class="goals-macro-cell" on:click={() => openEdit({ id: 'fat',           label: 'Fat', unit: 'g' })}>
-            <span class="gm-lbl">Fat</span>
+            <span class="gm-lbl">{$_('mouv.ui.fat')}</span>
             <span class="gm-val">{_fatGoalG ?? '—'}<span class="gm-u">g</span></span>
             <span class="gm-pct">{_macroPct.f}%</span>
           </button>
@@ -1223,7 +1223,7 @@
 
     <!-- ─── RIGHT RAIL — live preview (desktop only) ─────────────────────── -->
     <aside class="goals-right-rail">
-      <div class="goals-rail-heading">Preview</div>
+      <div class="goals-rail-heading">{$_('mouv.ui.preview')}</div>
 
       <div class="goals-preview-ring">
         {#key `${_effectiveCalGoal}-${_proteinGoalG}-${_carbsGoalG}-${_fatGoalG}`}
@@ -1255,7 +1255,7 @@
       </div>
 
       {#if _goalWarnings.length}
-        <div class="goals-rail-heading" style="margin-top:14px">Notes</div>
+        <div class="goals-rail-heading" style="margin-top:14px">{$_('mouv.ui.notes')}</div>
         <div class="goals-preview-warnings">
           {#each _goalWarnings as w}
             <div class="gp-warn gp-warn-{w.level}">
