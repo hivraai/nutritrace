@@ -14,6 +14,7 @@
   import { DB, localDateStr } from './lib/db.js';
   import { currentDate, loadEntry } from './stores/diary.js';
   import { reloadSettingStores } from './stores/settings.js';
+  import { localizeNutriments } from './lib/nutrition.js';
   import { mealNames, dateFormat, navStyle, applyAccentColor, accentColor, applyAppearance, appearance, disableAnimations, sidebarPersistent, language, pageBanners, bannerStyle, bannerAnimation, forceMobileLayout } from './stores/settings.js';
   import { locale, _ } from 'svelte-i18n';
   import { currentUser, userMgmtActive, setupRequired, loadAuthState, handleOidcCallback } from './stores/auth.js';
@@ -193,7 +194,7 @@
   // Drive svelte-i18n's active locale from the user's saved language setting.
   // Fires on mount + on every change, so picking a new value in the Settings
   // dropdown immediately re-renders all $_ calls in the running app.
-  $: if ($language) locale.set($language);
+  $: if ($language) { localizeNutriments($language); locale.set($language); }
 
   // A member's first tap on the MOUV WhatsApp button carries their language.
   {

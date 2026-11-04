@@ -265,4 +265,20 @@ const Nutrition = {
   }
 };
 
+// MOUV: the nutrient names, in the member's language.
+const NUTRIMENT_LABELS_ES = {
+  calories: 'Calorías', kilojoules: 'Kilojulios', fat: 'Grasa', 'saturated-fat': 'Grasa saturada', 'trans-fat': 'Grasa trans',
+  'polyunsaturated-fat': 'Grasa poliinsaturada', 'monounsaturated-fat': 'Grasa monoinsaturada', cholesterol: 'Colesterol',
+  sodium: 'Sodio', salt: 'Sal', carbohydrates: 'Carbohidratos', fiber: 'Fibra', sugars: 'Azúcares', 'added-sugars': 'Azúcares añadidos',
+  proteins: 'Proteína', 'vitamin-d': 'Vitamina D', calcium: 'Calcio', iron: 'Hierro', potassium: 'Potasio', 'vitamin-a': 'Vitamina A',
+  'vitamin-c': 'Vitamina C', 'vitamin-e': 'Vitamina E', 'vitamin-k': 'Vitamina K', b1: 'Vitamina B1', b2: 'Vitamina B2', b3: 'Vitamina B3',
+  b6: 'Vitamina B6', b9: 'Folato (B9)', b12: 'Vitamina B12', magnesium: 'Magnesio', zinc: 'Zinc', phosphorus: 'Fósforo', caffeine: 'Cafeína', alcohol: 'Alcohol',
+};
+const NUTRIMENT_LABELS_EN = new Map(NUTRIMENTS.map(x => [x.id, x.label]));
+export function localizeNutriments(lang) {
+  for (const x of NUTRIMENTS) {
+    x.label = (lang === 'es' && NUTRIMENT_LABELS_ES[x.id]) || NUTRIMENT_LABELS_EN.get(x.id) || x.label;
+  }
+}
+
 export { NUTRIMENTS, Nutrition };

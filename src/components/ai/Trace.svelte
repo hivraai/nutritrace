@@ -2112,7 +2112,7 @@ Diary logging streak: ${ctx.streakText || '(unknown)'}`
           </div>
           <div>
             <div class="ai-header-name">{assistantName}</div>
-            <div class="ai-header-sub">Your AI Health & Nutrition Coach</div>
+            <div class="ai-header-sub">{$_('mouv.ui.coach_sub')}</div>
           </div>
         </div>
         <div class="ai-header-actions">
@@ -2150,20 +2150,20 @@ Diary logging streak: ${ctx.streakText || '(unknown)'}`
             <div class="ai-welcome-avatar">
               <TraceFace size={48} />
             </div>
-            <p class="ai-welcome-name">Hi, I'm {assistantName}!</p>
-            <p class="ai-welcome-desc">Ask me anything — nutrition, sleep, activity, recovery, hydration, body composition. I have access to all your data from today.</p>
+            <p class="ai-welcome-name">{$_('mouv.ui.coach_hi', { values: { name: assistantName } })}</p>
+            <p class="ai-welcome-desc">{$_('mouv.ui.coach_desc')}</p>
             <div class="ai-quick-chips">
-              <button class="ai-chip" on:click={() => quickAsk("How am I doing today?")}>
-                How am I doing today?
+              <button class="ai-chip" on:click={() => quickAsk($_('mouv.ui.ask_today'))}>
+                {$_('mouv.ui.chip_today')}
               </button>
-              <button class="ai-chip" on:click={() => quickAsk("What should I eat for my next meal?")}>
-                Meal suggestion
+              <button class="ai-chip" on:click={() => quickAsk($_('mouv.ui.ask_meal'))}>
+                {$_('mouv.ui.chip_meal')}
               </button>
-              <button class="ai-chip" on:click={() => quickAsk("How was my sleep and recovery?")}>
-                Sleep & recovery
+              <button class="ai-chip" on:click={() => quickAsk($_('mouv.ui.ask_sleep'))}>
+                {$_('mouv.ui.chip_sleep')}
               </button>
-              <button class="ai-chip" on:click={() => quickAsk("Am I on track with my goals?")}>
-                Goal progress
+              <button class="ai-chip" on:click={() => quickAsk($_('mouv.ui.ask_goals'))}>
+                {$_('mouv.ui.chip_goals')}
               </button>
             </div>
           </div>

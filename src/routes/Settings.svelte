@@ -552,7 +552,7 @@
     <span class="material-symbols-rounded chevron">expand_more</span>
   </button>
 
-  <p class="settings-group-label">Data &amp; Tracking</p>
+  <p class="settings-group-label">{$_('mouv.ui.data_tracking')}</p>
   <button class="section-toggle" class:hidden={!sectionVisible(settingsQuery, 'goals')} class:active={currentSection === 'goals'} aria-current={currentSection === 'goals' ? 'page' : undefined} on:click={() => toggleSection('goals')}>
     <span class="material-symbols-rounded si">flag</span>
     <span>{$_('settings.goals.section')}</span>

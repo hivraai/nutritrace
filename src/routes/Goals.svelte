@@ -694,13 +694,13 @@
   <!-- Tabs -->
   <div class="tab-bar">
     <button class="tab-btn" class:active={activeTab==='yours'} on:click={() => activeTab='yours'}>
-      Your Goals
+      {$_('mouv.ui.your_goals')}
     </button>
     <button class="tab-btn" class:active={activeTab==='all'} on:click={() => activeTab='all'}>
-      All Fields
+      {$_('mouv.ui.all_fields')}
     </button>
     <button class="tab-btn" class:active={activeTab==='templates'} on:click={() => activeTab='templates'}>
-      Templates
+      {$_('mouv.ui.templates')}
     </button>
   </div>
 
@@ -715,15 +715,15 @@
       <div class="goals-rail-heading">{$_('mouv.ui.navigate')}</div>
       <button class="goals-rail-nav" class:active={activeTab === 'yours'} on:click={() => activeTab = 'yours'}>
         <span class="material-symbols-rounded">flag</span>
-        Your Goals
+        {$_('mouv.ui.your_goals')}
       </button>
       <button class="goals-rail-nav" class:active={activeTab === 'all'} on:click={() => activeTab = 'all'}>
         <span class="material-symbols-rounded">list</span>
-        All Fields
+        {$_('mouv.ui.all_fields')}
       </button>
       <button class="goals-rail-nav" class:active={activeTab === 'templates'} on:click={() => activeTab = 'templates'}>
         <span class="material-symbols-rounded">bookmark</span>
-        Templates
+        {$_('mouv.ui.templates')}
       </button>
 
       <div class="goals-rail-heading" style="margin-top:16px">{$_('settings_goals.calorie_goal_mode')}</div>

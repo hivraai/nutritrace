@@ -947,7 +947,7 @@ export const aiModel         = createSettingStore('aiModel',         '');
 // Plateforme, etc. Stored as a setting so users can point at any
 // /v1/chat/completions-compatible endpoint without rebuilding the app.
 export const aiBaseUrl       = createSettingStore('aiBaseUrl',       '');
-export const aiAssistantName = createSettingStore('aiAssistantName', 'Trace');
+export const aiAssistantName = createSettingStore('aiAssistantName', 'Coach MOUV');
 // Whether the AI key + provider combo has been successfully test-called.
 // Set true by SettingsTrace's save-and-test flow. Read by the Trace FAB
 // (in src/components/ai/Trace.svelte) to decide whether to render — a

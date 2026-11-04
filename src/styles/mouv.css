@@ -81,10 +81,18 @@ h1, h2, h3, h4 { letter-spacing: 0.01em; font-weight: 700; }
 }
 .mouv-masthead {
   display: block;
-  height: 44px;
+  height: 38px;
   width: auto;
-  margin: -8px 2px -8px -14px;
+  margin: -6px auto -6px -10px;
   flex: none;
+}
+/* On the Diary the logo is the title; the word stays for screen readers. */
+.mouv-masthead + h1 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
 }
 [data-theme="light"] .mouv-masthead { filter: invert(1); }
 .page-header .btn-icon, .diary-topbar-actions .btn-icon {
@@ -214,3 +222,15 @@ h1, h2, h3, h4 { letter-spacing: 0.01em; font-weight: 700; }
 .ai-fab::before, .ai-fab::after { display: none !important; }
 .fab-robot-wrap { color: var(--bg) !important; animation: none !important; filter: none !important; }
 .ai-fab.recording { background: var(--danger) !important; }
+
+/* ── No coloured stripes down the side of anything ── */
+.card, .diary-notes, .diary-notes.expanded, .wc-log-card { border-left: 0 !important; }
+
+/* ── Progress: a thin rule that fills, not a thick grey band ── */
+.dbb-macro-bar, .dbb-water-strip { height: 3px !important; }
+.dbb-water-strip-fill { background: var(--text-2) !important; }
+[data-theme="light"] { --info: #716A57; }
+
+/* ── Settings and chat chrome ── */
+.ai-chip, .ai-header { box-shadow: none !important; }
+.ai-header { background: var(--bg) !important; }
