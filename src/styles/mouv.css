@@ -234,3 +234,6 @@ h1, h2, h3, h4 { letter-spacing: 0.01em; font-weight: 700; }
 /* ── Settings and chat chrome ── */
 .ai-chip, .ai-header { box-shadow: none !important; }
 .ai-header { background: var(--bg) !important; }
+
+/* ── A member on GLP-1: no calorie goal to look at ── */
+.mouv-hidden { display: none !important; }

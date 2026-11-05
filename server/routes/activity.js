@@ -9,7 +9,7 @@ router.use(requireAuth);
 
 const uid = req => userMgmtActive() ? req.user.id : null;
 
-const ALLOWED_SOURCES = new Set(['manual_form', 'ai_estimated', 'user_stated', 'compendium']);
+const ALLOWED_SOURCES = new Set(['manual_form', 'ai_estimated', 'user_stated', 'compendium', 'mouv_class']);
 
 function sanitize(body) {
   const name = String(body?.name || '').trim().slice(0, 80);

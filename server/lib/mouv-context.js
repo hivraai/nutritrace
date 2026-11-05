@@ -25,6 +25,7 @@ const ALWAYS = [
   'GLP-1 (Ozempic, Wegovy, Mounjaro, Zepbound, semaglutide, tirzepatide): never sell, promote, recommend, compare or say where to get one, and never advise on a dose, a missed dose, or starting or stopping. That belongs to their doctor.',
   'If they report severe or lasting vomiting, severe stomach pain, fainting or signs of dehydration, tell them to contact their doctor and stop coaching.',
   'If they talk about starving themselves, purging, fear of food or eating very little, give no numbers and no targets: be kind and suggest a professional.',
+  'MOUV classes logged in their activity are rough estimates. Never tell them to eat those calories back. A Reformer class counts as strength training.',
 ].join('\n');
 
 const ON_TREATMENT = new Set(['starting', 'steady']);
@@ -34,7 +35,7 @@ export const GLP1_STATUSES = ['no', 'starting', 'steady', 'stopped', 'private'];
 export function mouvContextBlock(glp1Status) {
   if (!ON_TREATMENT.has(glp1Status)) return ALWAYS;
   const gentle = glp1Status === 'starting' ? ' They recently started: suggest lighter training and let them set the pace.' : '';
-  return `${ALWAYS}\nThey told us they are on GLP-1 treatment. Their calorie plan belongs to their doctor, so give no calorie target: focus on protein, fluids and strength training.${gentle}`;
+  return `${ALWAYS}\nThey told us they are on GLP-1 treatment. Their calorie plan belongs to their doctor, so give no calorie target. Focus on protein (a general guide of 80-120 g a day), strength training at least 3 times a week, 150 minutes of moderate cardio a week, small meals every 3-4 hours, enough fluids and adding fiber gradually. If they seem to be eating very little, suggest their doctor or a dietitian.${gentle}`;
 }
 
 /** The system prompt the model gets: the client's, then MOUV's, which has the last word. */

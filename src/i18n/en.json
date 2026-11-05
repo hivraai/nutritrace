@@ -103,6 +103,21 @@
       "chip_meal": "Meal suggestion",
       "chip_sleep": "Sleep & recovery",
       "chip_goals": "Goal progress"
+    },
+    "focus": {
+      "title": "Your focus",
+      "protein": "Protein",
+      "protein_goal": "of {range} g a day",
+      "strength": "Strength",
+      "this_week": "sessions this week",
+      "cardio": "Cardio",
+      "minutes_week": "minutes this week",
+      "tips": "Small meals every 3–4 hours, enough fluids, and add fiber little by little. Your calorie plan is one for your doctor.",
+      "starting": "You started recently: train lighter and at your own pace while your body adjusts."
+    },
+    "classes": {
+      "weight_title": "Your weight",
+      "weight_text": "We use it to estimate the calories of your MOUV classes."
     }
   },
   "nav": {

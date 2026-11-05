@@ -1201,5 +1201,17 @@ db.exec(`CREATE TABLE IF NOT EXISTS mouv_members (
   glp1_status       TEXT DEFAULT NULL,
   glp1_consented_at TEXT DEFAULT NULL
 )`);
+if (!columnExists('mouv_members', 'weight_kg')) db.exec('ALTER TABLE mouv_members ADD COLUMN weight_kg REAL DEFAULT NULL');
+if (!columnExists('mouv_members', 'classes_synced_at')) db.exec('ALTER TABLE mouv_members ADD COLUMN classes_synced_at TEXT DEFAULT NULL');
+// One row per MindBody visit ever logged, so a class the member deleted stays deleted.
+db.exec(`CREATE TABLE IF NOT EXISTS mouv_class_log (
+  user_id      INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  visit_id     INTEGER NOT NULL,
+  activity_id  INTEGER DEFAULT NULL,
+  met          REAL NOT NULL,
+  duration_min INTEGER NOT NULL,
+  auto_kcal    INTEGER DEFAULT NULL,
+  PRIMARY KEY (user_id, visit_id)
+)`);
 
 export default db;

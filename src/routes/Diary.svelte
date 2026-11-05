@@ -18,6 +18,7 @@
   import BodyStatsWidget   from '../components/diary/BodyStatsWidget.svelte';
   import ActivityImpactWidget from '../components/diary/ActivityImpactWidget.svelte';
   import MouvCard from '../components/diary/MouvCard.svelte';
+  import { mouvGlp1Focus } from '../stores/mouv.js';
   import { iconUrl } from '../lib/platform.js';
   import WeekStrip           from '../components/diary/WeekStrip.svelte';
   import AddActivitySheet from '../components/diary/AddActivitySheet.svelte';
@@ -1244,7 +1245,8 @@
   // Totals toggle — use a local variable so Svelte reactivity is guaranteed
   // even inside the portalled bottom bar element
   let _totalsMode = $diaryTotalsMode || 'consumed';
-  $: _totalsMode = $diaryTotalsMode || 'consumed';
+  // A member on GLP-1 has no calorie goal here, so there is nothing "remaining".
+  $: _totalsMode = $mouvGlp1Focus ? 'consumed' : ($diaryTotalsMode || 'consumed');
 
   function toggleTotalsMode() {
     const next = _totalsMode === 'consumed' ? 'remaining' : 'consumed';
@@ -1856,7 +1858,7 @@
       {/if}
     </div>
   </header>
-  {#if $diaryRailShowSummary}
+  {#if $diaryRailShowSummary && !$mouvGlp1Focus}
     <DaySummaryWidget
       eatenKcal={$_calTween}
       protein={$_protTween}
@@ -1956,7 +1958,7 @@
     {/if}
   </header>
 
-  <MouvCard />
+  <MouvCard proteinToday={totals.proteins || 0} />
 
   <!-- Date navigation and the desktop week strip pin as one block right
        under the header, so nothing can show between them. -->
@@ -1997,6 +1999,7 @@
     <WeekStrip
       currentDate={$currentDate}
       calorieGoal={caloriesGoal}
+      hideGoal={$mouvGlp1Focus}
       calorieGoalMode={$calorieGoalMode}
       calorieGoalFactor={$calorieGoalFactor}
       adjustFromActivity={$diaryShowActivity && $calorieAdjustFromActivity}
@@ -2439,7 +2442,7 @@
                   <div class="item-info">
                     <span class="item-name truncate">{a.name}</span>
                     <span class="item-meta text-3 text-sm">
-                      {#if a.duration_min}{a.duration_min} min{/if}{#if a.duration_min && a.distance} | {/if}{#if a.distance}{@const _dStr = String(a.distance).trim()}{_dStr}{#if /^\d+(\.\d+)?$/.test(_dStr)} {$distUnit || 'mi'}{/if}{/if}{#if (a.duration_min || a.distance)} | {/if}<span style="color:#C5AB88">−{_aEnergy.value.toLocaleString()} {_aEnergy.unit}</span>{#if a.source === 'ai_estimated'} | <span class="text-3" title="Estimated by Trace">{$_('diary.activity.estimated_short')}</span>{/if}
+                      {#if a.duration_min}{a.duration_min} min{/if}{#if a.duration_min && a.distance} | {/if}{#if a.distance}{@const _dStr = String(a.distance).trim()}{_dStr}{#if /^\d+(\.\d+)?$/.test(_dStr)} {$distUnit || 'mi'}{/if}{/if}{#if !$mouvGlp1Focus}{#if (a.duration_min || a.distance)} | {/if}<span style="color:#C5AB88">−{_aEnergy.value.toLocaleString()} {_aEnergy.unit}</span>{#if a.source === 'ai_estimated' || a.source === 'mouv_class'} | <span class="text-3">{$_('diary.activity.estimated_short')}</span>{/if}{/if}
                     </span>
                   </div>
                 </button>
@@ -2451,6 +2454,7 @@
             <span>{$_('diary.activity.add')}</span>
           </button>
           {@const _totActEnergy = Nutrition.displayEnergy(totalActKcal, $energyUnit)}
+          {#if !$mouvGlp1Focus}
           <div class="meal-macro-footer activity-footer" aria-label={$_('diary.activity.section')}>
             <div class="meal-macro-bar">
               {#each acts as a (a.id)}
@@ -2465,6 +2469,7 @@
               {/if}
             </span>
           </div>
+          {/if}
         {/if}
       </section>
     {/if}
@@ -2570,6 +2575,7 @@
 <!-- Persistent bottom nutrition bar -->
 <div use:portal={'#bottom-dock-slot'} class="diary-bottom-bar">
   <!-- Calorie progress strip -->
+  {#if !$mouvGlp1Focus}
   <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
   <div class="dbb-progress" on:click={() => barExpanded = !barExpanded}
     title="Calories: {Math.round(calPct)}%">
@@ -2577,6 +2583,7 @@
       class:celebrating={_calGoalCelebrating}
       style="width:{_barsMounted ? calPct : 0}%;{calPct >= 100 ? 'background:var(--danger)' : ''}"></div>
   </div>
+  {/if}
   <!-- Macro proportion bar — outside button so title tooltips work on hover -->
   <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
   <div class="dbb-macro-bar" on:click={() => barExpanded = !barExpanded}>
@@ -2598,7 +2605,7 @@
   <!-- Text summary row — taps to expand/collapse -->
   <button class="dbb-summary-row" on:click={() => barExpanded = !barExpanded}
     aria-label="{barExpanded ? 'Collapse' : 'Expand'} nutrition panel">
-    <span class="dbb-summary-text"><span style="color:var(--macro-protein)">{_mp.protein}% P</span> · <span style="color:var(--macro-carbs)">{_mp.carbs}% C</span> · <span style="color:var(--macro-fat)">{_mp.fat}% F</span> · <span style="color:var(--macro-calories)">{_sumEnergy.value.toLocaleString()} {_sumEnergy.unit}</span>{#if _waterShowInDiary} · <span style="color:var(--water-blue)"><span class="material-symbols-rounded" style="font-size:14px;vertical-align:middle">water_drop</span> {_waterDisplay(_waterTotal)}</span>{/if}</span>
+    <span class="dbb-summary-text">{#if $mouvGlp1Focus}<span style="color:var(--macro-protein)">{Math.round(totals.proteins || 0)} g {$_('mouv.focus.protein').toLowerCase()}</span> · {/if}<span style="color:var(--macro-protein)">{_mp.protein}% P</span> · <span style="color:var(--macro-carbs)">{_mp.carbs}% C</span> · <span style="color:var(--macro-fat)">{_mp.fat}% F</span> · <span style="color:var(--macro-calories)">{_sumEnergy.value.toLocaleString()} {_sumEnergy.unit}</span>{#if _waterShowInDiary} · <span style="color:var(--water-blue)"><span class="material-symbols-rounded" style="font-size:14px;vertical-align:middle">water_drop</span> {_waterDisplay(_waterTotal)}</span>{/if}</span>
     <span class="dbb-chevron material-symbols-rounded">{barExpanded ? 'expand_more' : 'expand_less'}</span>
   </button>
 
@@ -2606,7 +2613,7 @@
   {#if barExpanded}
     <div class="dbb-panel" transition:slide={{ duration: 220 }}>
       <!-- Consumed / Remaining toggle -->
-      <div class="dbb-toggle-row">
+      <div class="dbb-toggle-row" class:mouv-hidden={$mouvGlp1Focus}>
         <button class="dbb-toggle-pill" on:click|stopPropagation={toggleTotalsMode}
           aria-label="Toggle consumed/remaining">
           <span class="dbb-tp-opt" class:dbb-tp-active={_totalsMode === 'consumed'}>{$_('diary_deep.consumed')}</span>
@@ -3217,7 +3224,7 @@
           </button>
         </div>
         <!-- Macro ring -->
-        <div class="ns-ring-wrap">
+        <div class="ns-ring-wrap" class:mouv-hidden={$mouvGlp1Focus}>
           <MacroRing
             calories={totals.calories || 0}
             caloriesGoal={caloriesGoalAdjusted}

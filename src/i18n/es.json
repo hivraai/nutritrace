@@ -103,6 +103,21 @@
       "chip_meal": "Sugerir una comida",
       "chip_sleep": "Sueño y recuperación",
       "chip_goals": "Mis objetivos"
+    },
+    "focus": {
+      "title": "Tu enfoque",
+      "protein": "Proteína",
+      "protein_goal": "de {range} g al día",
+      "strength": "Fuerza",
+      "this_week": "sesiones esta semana",
+      "cardio": "Cardio",
+      "minutes_week": "minutos esta semana",
+      "tips": "Comidas pequeñas cada 3–4 horas, suficientes líquidos y agrega fibra poco a poco. Tu plan de calorías lo ves con tu médico.",
+      "starting": "Empezaste hace poco: entrena más suave y a tu ritmo mientras tu cuerpo se adapta."
+    },
+    "classes": {
+      "weight_title": "Tu peso",
+      "weight_text": "Lo usamos para estimar las calorías de tus clases MOUV."
     }
   },
   "nav": {

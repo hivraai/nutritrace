@@ -1,13 +1,14 @@
 import db from '../db.js';
 
 // Sum manually-logged activity calories for a user on a given date.
-// Returns an integer; 0 if no entries.
+// Returns an integer; 0 if no entries. A MOUV class is shown in the diary but
+// left out: it is an estimate, and it must not raise the member's calorie goal.
 export function sumManualActivity(userId, date) {
   const sql = userId == null
     ? `SELECT COALESCE(SUM(kcal), 0) AS s FROM activity_log
-        WHERE user_id IS NULL AND date = ? AND deleted_at IS NULL`
+        WHERE user_id IS NULL AND date = ? AND deleted_at IS NULL AND source != 'mouv_class'`
     : `SELECT COALESCE(SUM(kcal), 0) AS s FROM activity_log
-        WHERE user_id = ? AND date = ? AND deleted_at IS NULL`;
+        WHERE user_id = ? AND date = ? AND deleted_at IS NULL AND source != 'mouv_class'`;
   const row = userId == null
     ? db.prepare(sql).get(date)
     : db.prepare(sql).get(userId, date);

@@ -48,6 +48,7 @@
   }
 
   export let currentDate     = localDateStr();
+  export let hideGoal = false;                     // MOUV: a member on GLP-1 has no calorie goal to fill
   export let calorieGoal     = 2000;               // base goal (fixed / adaptive result). Per-day dynamic + activity overrides layer on top.
   export let refreshKey      = 0;                  // bump to force reload from parent
   export let calorieGoalMode = 'fixed';            // 'fixed' | 'dynamic' | 'adaptive' — dynamic triggers per-day calories-out fetch
@@ -345,7 +346,7 @@
       <span class="ws-kcal">
         {#if day.hasData}{day.kcal.toLocaleString()}{:else}—{/if}
       </span>
-      <span class="ws-bar-track">
+      <span class="ws-bar-track" class:mouv-hidden={hideGoal}>
         <span
           class="ws-bar-fill ws-status-{day.status}"
           style="width:{day.pct}%"
